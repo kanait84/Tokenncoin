@@ -1,0 +1,104 @@
+.news-cont{
+  padding: 20px;
+  box-shadow: 2px 4px 5px 1px rgba(0, 0, 0, 0.1);
+
+  background-color: rgba(255, 255, 255, 0.88);
+  border: 1px solid rgba(0, 0, 0, 0.09);
+}
+.news-cont:hover{
+  background-color: rgba(255, 255, 255, 0.72);
+}
+.news-cont img{
+  width: 100%;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.news-cont h5{
+  color: #49c279;
+  cursor: pointer;
+}
+.news-cont h4{
+  cursor: pointer;
+}
+p {
+  font-size: 14px;
+}
+
+.ic-img{
+  width: 20px !important;
+}
+
+.categories-tag{
+  text-transform: uppercase;
+}
+
+.categories-tag span{
+  background-color: rgba(85, 85, 85, 0.27);
+  padding: 5px;
+  color: white;
+  text-align: right;
+}
+
+
+.dropdown-menu{
+  background-color: white;
+}
+
+.m-img{
+  border-radius: 8px;
+}
+
+.form-control{
+  width: 100%;
+  margin: auto;
+}
+.event-country-drop{
+  width: 85%;;
+}
+.dropdown-btn{
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  color: #131313;
+  border: solid 1.5px transparent;
+  background-image: linear-gradient(120deg, #f47b22 0%, #f8a32b 11% , #284191 100%), linear-gradient(120deg, #f47b22 0%, #f8a32b 11% , #284191 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+  padding: .3rem .25rem;
+  border-radius: 25px;
+  line-height: 1.8;
+  padding-left: 20px;
+  padding-right: 20px;
+  right: 65px;
+
+}
+
+.dropdown-btn:hover{
+  color: #314958;
+  border: solid 1.5px #808080;
+  background-image: linear-gradient(120deg, rgba(251, 0, 255, 0) 0%, rgba(0, 63, 255, 0) 100%), linear-gradient(120deg, rgba(251, 0, 255, 0) 0%, rgba(0, 63, 255, 0) 100%);
+}
+@media only screen and (max-width: 600px) {
+  .m-t-20{
+    margin-top: 20px;
+    float: right;
+    width: 100%;
+    .dropdown-btn{
+      width: 85%;
+      margin: auto;
+      display: block;
+    }
+  }
+}
+.filter-btn{
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  color: #314958;
+  margin: 5px;
+}
+.filter-btn-active{
+  color: #ffffff !important;
+  font-weight: 500;
+  background-color: #e0e0e0;
+}

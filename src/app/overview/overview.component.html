@@ -1,0 +1,72 @@
+<div class="side-cont" style="padding: 8px"   appNoRightClick>
+  <div class="row" style="padding-left: 10px">
+    <!--<img class="img-blured" src="{{coinData?.Chart}}">-->
+    <div class="col-md-7">
+      <div class="row" style="padding: 10px">
+        <div class="col-md-3 pl-0 pr-0 col-6">
+          <div class="side-line mt-4">
+            <div class="coin-meta-data text-left">
+              <h5>{{'1hr Price Change'| translate}}</h5>
+              <h6 >{{coinData?.change_per_1h | number}} %</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 pl-0 pr-0 col-6 ">
+          <div class="side-line mt-4">
+            <div class="coin-meta-data text-left">
+              <h5>{{'24h Price Change' | translate}}</h5>
+              <h6 > {{coinData?.change_per_24h | number}} %</h6>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-3 pl-0 pr-0 col-6">
+          <div class="side-line mt-4">
+            <div class="coin-meta-data text-left">
+              <h5>{{'7d Price Change'| translate}}</h5>
+              <h6 > {{coinData?.change_per_7d | number}} %</h6>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <hr>
+  <div class="row">
+  <div class="col-md-10 offset-md-1">
+  <h2 class="mt-2 text-center">{{coinData?.name}} Charts </h2>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col-md-12 text-center" style="margin-bottom: 10px">
+    <div class="chart-leg">
+    <span class="just-line" style="background-color: #ff707c"> </span> <span class="just-line-t">Market Cap</span>
+    <span class="just-line" style="background-color: #dfcc64"> </span> <span class="just-line-t">Price</span>
+    <span class="just-line" style="background-color: #7ddbff"> </span> <span class="just-line-t">Volume 24h</span>
+    </div>
+    </div>
+    <div class="col-md-12 text-center">
+      <button class="btn btn-date-f btn-sm" [ngClass]="{'gr-selected' : dateFilters === 7}" (click)="changeDaysFilter(7)">7d</button>
+      <button class="btn btn-date-f btn-sm" [ngClass]="{'gr-selected' : dateFilters === 30}" (click)="changeDaysFilter(30)">30d</button>
+      <button class="btn btn-date-f btn-sm" [ngClass]="{'gr-selected' : dateFilters === 90}" (click)="changeDaysFilter(90)">3m</button>
+    </div>
+
+    <div id="chartdiv" class="chartUi" style="height: 560px;"></div>
+
+  </div>
+
+  <div class="row" style="padding-left: 10px;padding-right:10px;" *ngIf="coinDescriptions?.description">
+    <div class="col-md-10 offset-md-1">
+      <hr>
+      <h2 class="mt-2">About {{coinData?.name}} <span class="c-up">({{coinData?.symbol}}) </span></h2>
+    </div>
+    <div class="col-md-10 offset-md-1">
+      <p class="p-txt" [innerHTML]="coinDescriptions?.description"></p>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+

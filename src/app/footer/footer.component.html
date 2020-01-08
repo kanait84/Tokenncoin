@@ -1,0 +1,94 @@
+<footer>
+  <!--<img src="assets/images/path-2.png" style="position: absolute;background-color: #ffffff;z-index: -1">-->
+  <section class="subscription">
+    <div class="container">
+    <h2 class="text-center"> {{'Sign up for our Newsletter' | translate}}</h2>
+    <p class="text-center"> {{'Sign Up Description'|translate}}</p>
+      <div class="row">
+        <div class="col-md-4 offset-md-4 col-xs-12">
+            <input  class="form-control"  placeholder="{{'Enter Your Email' | translate}}" [(ngModel)]="emailTyped" (keydown)="setNull()">
+          <h6 class="text-center" *ngIf="alreadyExist== true">Already registered !</h6>
+          <h6 class="text-center" *ngIf="blankCheck== true">Email is required*</h6>
+          <h6 class="text-center" *ngIf="isNotValid== true">Enter a valid Email*</h6>
+          <h6 class="text-center" *ngIf="isSuccess== true">Thank You for subscribing !</h6>
+          <a class="btn subc-btn" (click)="subscribe()"> {{'Subscribe Now' | translate}}</a>
+        </div>
+      </div>
+      <div class="row">
+       <!-- <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-top: 30px">
+          <img class="resp-ad"  src="assets/images/ad.gif">
+        </a>-->
+      </div>
+    </div>
+  </section>
+  <section id="footer">
+    <div class="container">
+      <div class="row text-center text-xs-center text-sm-left text-md-left">
+        <div class="col-xs-12 col-sm-3 col-md-3">
+          <a routerLink="/"><img  src="assets/images/tokenncoin-logo.png" alt=""></a>
+          <a (click)="comingSoon('IOS App')" class="footer-play"><img src="assets/images/apps-store.png"></a>
+          <a href="https://play.google.com/store/apps/details?id=com.tokenncoin.marketcap" target="_blank"  class="footer-play"><img src="assets/images/google-play.png"></a>
+          <ul class="list-unstyled list-inline social text-center" style="margin-top: 20px">
+            <li class="list-inline-item"><a href="https://www.facebook.com/tokenncoin" target="_blank"><i class="fa fa-facebook"></i></a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/tokenncoin" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.instagram.com/tokenncoin/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li class="list-inline-item"><a href="https://t.me/tokenncoin" target="_blank"><i class="fa fa-telegram"></i></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/company/tokenncoinmarket" target="_blank"><i class="fa fa-linkedin"></i></a></li>
+          </ul>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3">
+          <h5>{{'Quick links' | translate}}</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a routerLink="about-us"><i class="fa fa-angle-double-right"></i>{{'About Us' | translate}}</a></li>
+            <li><a routerLink="/cryptocurrencies"><i class="fa fa-angle-double-right"></i>{{'Crypto Currencies'| translate}}</a></li>
+            <li><a routerLink="/exchanges"><i class="fa fa-angle-double-right"></i>{{'Exchanges' | translate}}</a></li>
+            <li><a routerLink="/icos"><i class="fa fa-angle-double-right"></i>ICOs</a></li>
+            <li><a routerLink="/events"><i class="fa fa-angle-double-right"></i>{{'Events' | translate}}</a></li>
+            <li><a routerLink="/news"><i class="fa fa-angle-double-right"></i>{{'News'| translate}}</a></li>
+            <!--<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe8Uz8LuRkUjU-Te_Ue-3d_UjfWafYECdy0S30ymRo0f_fPeQ/viewform" target="_blank"><i class="fa fa-angle-double-right"></i>{{'Advertise' | translate}}</a></li>-->
+          </ul>
+        </div>
+        <div class="col-6 col-sm-3 col-md-3">
+          <h5>{{'Resources' | translate}}</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a routerLink="terms-and-conditions"><i class="fa fa-angle-double-right"></i>{{'Terms & Conditions' | translate}}</a></li>
+            <li><a routerLink="privacy-policy"><i class="fa fa-angle-double-right"></i>{{'Privacy Policy' | translate}}</a></li>
+            <li><a routerLink="cookies-policy"><i class="fa fa-angle-double-right"></i>{{'Cookies Policy' | translate}}</a></li>
+            <li><a routerLink="disclaimer"><i class="fa fa-angle-double-right"></i>{{'Disclaimer' | translate}}</a></li>
+            <li><a routerLink="beginner-crypto-glossary"><i class="fa fa-angle-double-right"></i>{{'Glossary' | translate}}</a></li>
+            <li><a routerLink="faq"><i class="fa fa-angle-double-right"></i>{{'FAQ' | translate}}</a></li>
+
+          </ul>
+        </div>
+        <div class="col-xs-12 col-sm-3 col-md-3">
+          <h5>{{'Tools' | translate}}</h5>
+          <ul class="list-unstyled quick-links">
+            <li><a routerLink="/coin-compare"><i class="fa fa-angle-double-right"></i>{{'Coin Compare' | translate}}</a></li>
+            <li><a target="_blank" href="https://tokenncoin.com/sitemap.xml"><i class="fa fa-angle-double-right"></i>{{'Sitemap' | translate}}</a></li>
+            <!--<li><a><i class="fa fa-angle-double-right"></i>{{'Blockchain Explorer' | translate}}</a></li>-->
+          </ul>
+        </div>
+
+
+
+      </div>
+      <div class="btm-border"> </div>
+      <div class="row">
+          <p class="text-center" style="display: block;width: 100%;margin-top: 20px;"> <a class="h6" style="font-weight: 100;font-size: small;color: rgba(255,255,255,0.66)">2019,  All Rights Reserved.<a class="text-green ml-2" target="_blank" style="color: rgba(255,255,255,0.66)">Tokenncoin</a></a></p>
+        <hr>
+      </div>
+    </div>
+  </section>
+</footer>
+<div class="c-bck" *ngIf="comingsoonShow === true" (click)="closepop()">
+  <div class="coming-soon-anim">
+    <div style="display: block; margin: auto">
+      <p class="text-center"><b>COMING SOON </b> on the {{popuptext}} Store! </p>
+      <hr>
+      <a class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs" style="width: fit-content !important;"
+         aria-expanded="false" (click)="closepop()">{{'Close'| translate}}<i class="pe pe-7s-close"></i></a>
+    </div>
+
+  </div>
+
+</div>

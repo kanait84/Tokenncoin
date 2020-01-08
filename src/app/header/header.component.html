@@ -1,0 +1,107 @@
+<head *ngIf="mode=='dark'">
+  <link rel='preload' href="https://tokenncoin.com/assets/css/style-dark.css?v=2.4" as="style" onload="this.rel='stylesheet'">
+</head>
+<div class="c-bck" *ngIf="currencyPopup === true" (click)="closepop()">
+  <div class="coming-soon-anim currency-popup">
+    <div class="row">
+      <ul style="padding-left: 0px">
+        <li class="dropdown-item w-r" *ngFor="let cur of currencies?.rates| keyvalue" (click)="onCurrency(cur.key,cur.value)" >
+          <span ><img class="cur-flags"  src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}"></span> {{cur.key}}</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<header>
+  <div class="crypt-header">
+      <div class="sub-menu">
+        <div class="container">
+          <ul>
+            <li ><strong > {{'Crypto Currencies'| translate}} : </strong> <span routerLink="cryptocurrencies" style="cursor: pointer">{{globalData?.active_cryptocurrencies| number}} </span></li>
+            <li><strong >| {{'Exchanges' | translate}} : </strong><span routerLink="exchanges" style="cursor: pointer">{{globalData?.active_exchanges | number}} </span></li>
+            <li><strong>| {{'Markets' | translate}} : </strong><span>{{globalData?.active_market_pairs | number}} </span> </li>
+            <li><strong>| {{'Market Cap'| translate}} : </strong><span>$ {{globalData?.total_market_cap | number}} </span> </li>
+            <li><strong>| {{'24h Volume'| translate}} : </strong> <span>$ {{globalData?.total_volume_24h | number}} </span></li>
+            <li><strong>| {{'BTC Dominance'| translate}} : </strong><span>{{globalData?.btc_dominance | number}} % </span></li>
+            <li><strong>| {{'ETH Dominance'| translate}} : </strong><span>{{globalData?.eth_dominance | number}} % </span></li>
+          </ul>
+        </div>
+      </div>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-5">
+          <div class="row">
+            <div class="col-xs-2">
+              <div class="crypt-logo">
+                <a href="/"><img src="assets/images/tokenncoin-logo.png" alt="tokenncoin-logo" ></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-10 d-none d-md-none d-lg-block">
+          <ul class="crypt-heading-menu fright">
+            <li><a  routerLinkActive="active-m" routerLink="/icos" translate>Icos</a></li>
+            <li><a  routerLinkActive="active-m" routerLink="/cryptocurrencies" translate>Rankings</a></li>
+            <li><a  routerLinkActive="active-m" routerLink="/news" translate>News</a></li>
+            <li><a  routerLinkActive="active-m" routerLink="/events" translate>Events</a></li>
+            <li><a  routerLinkActive="active-m" routerLink="/coin-compare" translate>Coin Compare</a></li>
+            <li><a  routerLinkActive="active-m" routerLink="/about-us" translate>About Us</a></li>
+            <!--<li><a href="https://docs.google.com/forms/d/e/1FAIpQLSe8Uz8LuRkUjU-Te_Ue-3d_UjfWafYECdy0S30ymRo0f_fPeQ/viewform" target="_blank">{{'Advertise' | translate}}</a></li>-->
+            <li><app-search></app-search></li>
+            <li>
+                <a class="crypt-btn crypt-button-inline crypt-btn-yellow pull-right dropdown-toggle c-up dropdown-btn"
+                   id="currencyConvert" data-toggle="dropdown" aria-haspopup="true"
+                   aria-expanded="false"><img class="l-img" src="assets/images/lang/{{currentTranslated}}.png" width="20"> {{currentTranslated}}<i class="pe pe-7s-angle-down-circle"></i></a>
+                <div class="dropdown-menu" aria-labelledby="currencyConvert">
+                  <a class="dropdown-item" *ngFor="let tr of translateOptions | keyvalue" (click)="switchLanguage(tr.value.toString(),tr.key)" ><img class="l-img" src="assets/images/lang/{{tr.key}}.png" width="20">{{tr.key}}</a>
+                </div>
+            </li>
+            <li class="mg-r-40" (click)="switchTheme()"><a class="night-mode-btn"><img class="l-img l-mg" src="assets/images/dark-mode-{{mode}}.png" width="20"></a></li>
+          </ul>
+        </div>
+        <i class="menu-toggle pe-7s-menu d-xs-block d-sm-block d-md-block d-lg-none" (click)="toggleMenu()"></i>
+      </div>
+    </div>
+  </div>
+  <div class="m-menu-back" *ngIf="menu==true" (click)="close()"></div>
+  <div  *ngIf="menu==true" class="crypt-mobile-menu" >
+    <ul class="crypt-heading-menu">
+      <li><app-search></app-search></li>
+      <li (click)="linkTo('/icos')"><a translate>Icos</a></li>
+      <li (click)="linkTo('/cryptocurrencies')"><a translate>Rankings</a></li>
+      <li (click)="linkTo('/news')"><a translate>News</a></li>
+      <li (click)="linkTo('/events')"><a translate>Events</a></li>
+      <li (click)="linkTo('/coin-compare')"><a translate>Coin Compare</a></li>
+      <li (click)="linkTo('/about-us')"><a translate>About Us</a></li>
+      <li>
+        <hr>
+        <div style="display: flex;justify-content: space-between;">
+        <div style="flex-grow: 1;padding: 5px">
+        <a class="crypt-btn crypt-button-inline crypt-btn-yellow dropdown-toggle c-up dropdown-btn lang-mobile w-100"
+           id="currencyConvertmobile" data-toggle="dropdown" aria-haspopup="true"
+           aria-expanded="false"><img class="l-img" src="assets/images/lang/{{currentTranslated}}.png" width="20" > {{currentTranslated}}<i class="pe pe-7s-angle-down-circle"></i></a>
+        <div class="dropdown-menu" aria-labelledby="currencyConvertmobile">
+          <a class="dropdown-item" *ngFor="let tr of translateOptions | keyvalue" (click)="switchLanguage(tr.value.toString(),tr.key)" ><img class="l-img" src="assets/images/lang/{{tr.key}}.png" width="20">{{tr.key}}</a>
+        </div>
+        </div>
+        <div style="flex-grow: 1;padding: 5px">
+          <a class="crypt-btn crypt-button-inline crypt-btn-yellow dropdown-toggle c-up dropdown-btn lang-mobile w-100"
+             id="currencyConvertmobile2" data-toggle="dropdown" aria-haspopup="true"
+             aria-expanded="false">{{fcurrency}}<i class="pe pe-7s-angle-down-circle"></i></a>
+          <div class="dropdown-menu" aria-labelledby="currencyConvertmobile2" style="height: 400px;overflow: scroll">
+            <ng-container *ngFor="let cur of currencies?.rates| keyvalue">
+            <a class="dropdown-item"  *ngIf="validCurrencies.includes(cur.key)" (click)="onCurrency(cur.key,cur.value)" ><img class="l-img" src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}" width="20">{{cur.key}}</a>
+            </ng-container>
+          </div>
+        </div>
+        <div style="flex-grow: 0;padding: 5px">
+        <a  class="night-mode-btn d-xs-block d-sm-block d-md-block d-lg-none w-100" style="padding: 0px !important;">
+          <img  (click)="switchTheme()" class="" src="assets/images/dark-mode-{{mode}}.png" width="30" style="margin: 5px; "></a>
+        </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</header>
+
+
+

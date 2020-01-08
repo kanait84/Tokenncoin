@@ -1,0 +1,135 @@
+<div class="container" appNoRightClick>
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row sm-gutters" style="margin-top: 120px">
+    <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>
+    <div class="col-md-12 main-title" >
+      <div class="side-cont">
+        <div class="row">
+          <div class="col-md-12">
+             <div class="mb-coin-headers">
+            <img  alt="coin" class="pr-1 crypt-market-cap-logo " src="https://api.tokenncoin.com/images/exchanges/medium-icon/{{exchangeData?.slug}}.png" width="30">
+            <h1 class="main" style="display: contents"><strong>{{exchangeData?.name}}</strong></h1>
+            <h2 class="crypt-up" style="margin-left: 20px;color: #284191;"><b>{{fcurrency}} {{exchangeData?.volume_24h * fcurrencyValue| number}}</b></h2>
+            <div  class="dropdown convert-l d-none d-sm-inline" >
+              <a class="crypt-heading-menu" style="margin: unset;">
+                <a class="crypt-btn crypt-button-inline crypt-btn-yellow
+        dropdown-toggle c-up dropdown-mb" aria-expanded="false" aria-haspopup="true"
+                   id="currencyConvert" data-toggle="dropdown" style="width: fit-content">
+                  <img class="cur-flags" style="margin-right: 8px" src="assets/images/flags/{{fcurrency}}.svg" width="20">
+                  {{fcurrency}}<i class="pe pe-7s-angle-down-circle"></i></a>
+                <div class="dropdown-menu" aria-labelledby="currencyConvert">
+                  <ng-container *ngFor="let cur of currencies?.rates| keyvalue">
+                    <a class="pull-left dropdown-toggle c-up  c-drop-down" *ngIf="validCurrencies.includes(cur.key)"  (click)="onCurrency(cur.key,cur.value)">
+                      <img class="cur-flags" style="margin-right: 2px" src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}">{{cur.key}}</a>
+                  </ng-container>
+                </div>
+              </a>
+            </div>
+            <hr>
+             </div>
+          </div>
+          <div class="col-md-7">
+            <div class="row">
+              <!--<img class="img-blured" src="{{coinData?.Chart}}">-->
+              <div class="col-md-4 col-4">
+                <div class="side-line mt-4">
+                  <div class="coin-meta-data text-left">
+                    <h5>{{'24h Change'| translate}}</h5>
+                    <h6 class="change-tag-plus" *ngIf="exchangeData?.percent_change_volume_24h >= 0"> {{exchangeData?.percent_change_volume_24h | number}} %</h6>
+                    <h6 class="change-tag-minus" *ngIf="exchangeData?.percent_change_volume_24h < 0"> {{exchangeData?.percent_change_volume_24h | number}} %</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4 col-4">
+                <div class="side-line mt-4">
+                  <div class="coin-meta-data text-left">
+                    <h5>{{'7d Change'| translate}}</h5>
+                    <h6 class="change-tag-plus" *ngIf="exchangeData?.percent_change_volume_7d >= 0"> {{exchangeData?.percent_change_volume_7d | number}} %</h6>
+                    <h6 class="change-tag-minus" *ngIf="exchangeData?.percent_change_volume_7d < 0"> {{exchangeData?.percent_change_volume_7d | number}} %</h6>
+                  </div>
+                </div>
+              </div>
+              <div class="col-md-4  col-4">
+                <div class="side-line mt-4">
+                  <div class="coin-meta-data text-left">
+                    <h5>{{'30d Change'| translate}}</h5>
+                    <h6 class="change-tag-plus" *ngIf="exchangeData?.percent_change_volume_30d >= 0"> {{exchangeData?.percent_change_volume_30d | number}} %</h6>
+                    <h6 class="change-tag-minus" *ngIf="exchangeData?.percent_change_volume_30d < 0"> {{exchangeData?.percent_change_volume_30d | number}} %</h6>
+                  </div>
+                </div>
+              </div>
+
+
+            </div>
+          </div>
+          <div class="col-md-5">
+            <div class="light-c-bck">
+              <p><b><i class="pe pe-7s-link"></i><a class="url-link" href="{{exchangeData?.url[0]?.urls?.website[0]}}" target="_blank">{{exchangeData?.url[0]?.urls?.website[0]}} </a> </b></p>
+              <p><b><i class="fa fa-twitter"></i><a class="url-link" href="{{exchangeData?.url[0]?.urls?.twitter[0]}}" target="_blank">{{exchangeData?.url[0]?.urls?.twitter[0]}} </a> </b></p>
+              <p><b><i class="pe pe-7s-chat"></i>  {{'Chat'| translate}} : <a class="url-link" href="{{exchangeData?.url[0]?.urls?.chat[0]}}" target="_blank">{{exchangeData?.url[0]?.urls?.chat[0]}} </a> </b></p>
+              <p><b><i class="pe pe-7s-cash"></i>  {{'Fee' | translate}} : <a class="url-link" href="{{exchangeData?.url[0]?.urls?.fee[0]}}" target="_blank">{{exchangeData?.url[0]?.urls?.fee[0]}} </a> </b></p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-12 pl-0 pr-0">
+    <h2 class="mt-5 d-inline-block"> {{'Active Markets'| translate}}  </h2><span class="act-mrk-tag">{{exchangePairs?.length}} </span>
+    <!--<div class="col-md-12 mt-4" style="padding-left: 0px">
+      <a class="crypt-btn crypt-button-inline crypt-btn-green mk-wht"> Pair: All <i class="pe pe-7s-angle-down-circle"></i> </a>
+      <a class="crypt-btn crypt-button-inline crypt-btn-green  mk-wht"> Category: All <i class="pe pe-7s-angle-down-circle"></i>  </a>
+      <a class="crypt-btn crypt-button-inline crypt-btn-green  mk-wht"> Fee Type: All <i class="pe pe-7s-angle-down-circle"></i> </a>
+      <a class="crypt-btn crypt-button-inline crypt-btn-green mk-wht "> USD <i class="pe pe-7s-angle-down-circle"></i>  </a>
+    </div>-->
+    <div class="table-responsive-m">
+      <table class="table table-striped crypt-table-market-cap ">
+        <thead>
+        <tr>
+          <th scope="col" class="tbl-h"></th>
+          <th scope="col" class="text-left pl-2 tbl-h">{{'Currency'| translate}}</th>
+          <th scope="col" class="text-center tbl-h">{{'Pair'| translate}}</th>
+          <th scope="col" class="tbl-h">{{'Price'| translate}}</th>
+          <th scope="col" class="tbl-h">{{'Volume 24h' | translate}}</th>
+          <th scope="col" class="tbl-h">{{'Category' | translate}}</th>
+          <th scope="col" class="tbl-h">{{'Fee Type'| translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let exc of exchangePairs; let i = index">
+          <th class="text-left" style="max-width: 30px">{{i+1}}</th>
+          <td  style="text-align: left !important;width: 112px">
+            <a class="link-secondary c-up" target="_blank" href="{{exc?.market_url}}" > <img src="{{exc?.base_icon}}" width="20" class="img-l" alt="{{exc?.base_name}}"> <b>{{exc?.base_name}} </b></a>
+          </td>
+          <td class="text-center">
+        <span class="cmc-exchange-alert">
+        <a href="{{exc?.market_url}}" target="_blank">{{exc?.market_pair}}</a>
+       </span>
+          </td>
+          <td>
+            <span *ngIf="exc?.price >= 1" class="price-c"> {{exc?.price * fcurrencyValue|currency: fcurrency : 'symbol' : '1.2-2'}} </span>
+            <span *ngIf="exc?.price < 1" class="price-c"> {{exc?.price * fcurrencyValue|currency: fcurrency : 'symbol' : '1.8-8'}} </span>
+          </td>
+          <td class="text-center" *ngIf="exc?.volume_24h >= 1">{{exc?.volume_24h * fcurrencyValue |currency: fcurrency : 'symbol' : '1.2-2'}}</td>
+          <td class="text-center" *ngIf="exc?.volume_24h < 1">{{exc?.volume_24h * fcurrencyValue |currency: fcurrency : 'symbol' : '1.8-8'}}</td>
+          <td class="text-center">{{exc?.category}}</td>
+          <td class="text-center">{{exc?.fee_type}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<div class="c-bck" *ngIf="currencyPopup === true" (click)="closepop()">
+  <div class="coming-soon-anim currency-popup">
+    <div class="row">
+      <ul style="padding-left: 0px">
+        <li class="dropdown-item w-r" *ngFor="let cur of currencies?.rates| keyvalue" (click)="onCurrency(cur.key,cur.value)" >
+          <span ><img class="cur-flags"  src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}"></span> {{cur.key}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

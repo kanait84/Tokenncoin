@@ -1,0 +1,222 @@
+<div class="row" *ngIf="LoginView === true">
+  <div class="col-md-4 offset-md-4">
+    <img src="assets/images/tokenncoin-logo.png" class="log-logo">
+    <hr>
+    <div class="form-group">
+      <label>User Name</label>
+      <input class="form-control" type="text" [(ngModel)]="userName">
+      <label class="mt-2">Password</label>
+      <input class="form-control" type="password" [(ngModel)]="password">
+    </div>
+    <div class="form-group">
+      <button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" (click)="doLogin()">Login</button>
+    </div>
+  </div>
+</div>
+
+<div class="container" *ngIf="CoinView === true">
+  <div class="row" style="margin-top: -40px">
+    <div class="col-md-12" >
+      <div class="side-cont">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="crypt-up" style="margin-left: 20px;display: inline-block"><b>Coin Description</b></h2>
+            <button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" style="margin-top: 0px;width: 15% !important;" (click)="showEmailList()">Subscribers</button>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="row sm-gutters">
+                <input class="form-control w-100" style="margin: 10px "  type="text" placeholder="Search" [(ngModel)]="searchParam">
+              <hr>
+              <br>
+              <!--  TABLE DATA-->
+              <div   class="col-md-12">
+                <div class="table-responsive" style="max-height: 700px;overflow: scroll;overflow-x: hidden">
+                  <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+                  <table class="table crypt-table-market-cap fixed_header">
+                    <thead>
+                    <tr>
+                      <!--<th scope="col"></th>-->
+                      <th >Rank</th>
+                      <th  class="text-left pl-2"> Name</th>
+                      <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr *ngFor ="let cdata of results; let i = index" (click)="toEdit(cdata?.slug, cdata?.small_icon, cdata?.name)">
+                      <td *ngIf="cdata?.name.toLowerCase().includes(searchParam.toLowerCase())">{{cdata?.rank}}</td>
+                      <td *ngIf="cdata?.name.toLowerCase().includes(searchParam.toLowerCase())" class="text-left pl-2 font-weight-bold" width="20%"><img class="img-l" src="{{cdata?.small_icon}}" width="25" alt="coin">
+                        <a>{{cdata.name}} <span class="light-l">{{'('+ cdata.symbol +')'}}</span></a>
+                      </td>
+                      <td  *ngIf="cdata?.name.toLowerCase().includes(searchParam.toLowerCase())">
+                       <i *ngIf="cdata?.description" class="fa fa-check"></i>
+                      </td>
+                    </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-8">
+            <div class="row">
+              <button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" style="margin-top: 0px;width: 15% !important;" (click)="DoShowMetaDetails()">Meta Details</button>
+              <button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" style="margin-top: 0px;width: 15% !important;" (click)="DoShowCoinLinks()">Coin Links</button>
+            </div>
+
+            <div class="edit-cont" *ngIf="SelectedCoin !== ''">
+              <div class="row">
+                <div class="col-md-12 edit-title">
+                  <img src="{{SelectedCoinImage}}" class="c-img-img"> <h2 class="mt-2" style="text-transform: capitalize">{{SelectedCoinName}}</h2>
+                </div>
+              </div>
+              <ng-container *ngIf="ShowMetaDetails == true">
+            <div class="row">
+                <h5>Add/Edit Description</h5>
+                <textarea rows="10" class="form-control" [(ngModel)]="SelectedCoinDescription"></textarea>
+              <h5>Add/Edit Meta-Description</h5>
+              <textarea rows="5" class="form-control" [(ngModel)]="SelectedCoinMetaDescription"></textarea>
+                <button class="btn btn-primary" (click)="onAddDescription(SelectedCoin,SelectedCoinDescription,SelectedCoinMetaDescription)"> Update</button>
+              <span class="success-msg" *ngIf="showComplete== true">Updated Successfully</span>
+            </div>
+            </ng-container>
+              <ng-container *ngIf="ShowCoinLinks == true">
+              <div class="row">
+              <div class="col-md-12 mt-2 linkList">
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-globe"></i> Website</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.website">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.website">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('website', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                  <input [(ngModel)]="newWebsite" class="link-input w-25" style="height: 30px">
+                  <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksWebsite(EditableData._id)">
+                    <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-folder-open"></i> Explorer</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.explorer">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.explorer">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('explorer', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newExplorer" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksExplorer(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-file"></i> White Paper</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.technical_doc">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.technical_doc">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('technical_doc', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newTechnicalDoc" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksTechnicalDoc(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-twitter"></i> Twitter</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.twitter">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.twitter">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('twitter', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newTwitter" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksTwitter(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-reddit"></i> Reddit</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.reddit">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.reddit">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('reddit', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newReddit" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksReddit(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-file-code-o"></i> Source Code</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.source_code">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.source_code">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('source_code', tw, EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newCode" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksCode(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+              </div>
+              </div>
+              </ng-container>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+
+<div class="container" *ngIf="EmailView === true">
+  <div class="row" style="margin-top: -40px">
+    <div class="col-md-8 offset-md-2" >
+      <div class="side-cont">
+        <div class="row">
+          <div class="col-md-12">
+            <h2 class="crypt-up" style="margin-left: 20px;display: inline-block"><b>Subscribers</b></h2>
+            <!--<button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" style="margin-top: 0px;width: 25% !important;" (click)="downloadRecords()"><i class="fa fa-arrow-down"> </i> Download Records</button>-->
+            <button class="crypt-btn crypt-button-inline crypt-btn-green m-f-50
+        selected-btn w-25 pull-right" style="margin-top: 0px;width: 25% !important;" (click)="showCoin()">Update Coin Details</button>
+            <hr>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row sm-gutters">
+              <!--  TABLE DATA-->
+              <div   class="col-md-12">
+                <table class="table crypt-table-market-cap fixed_header">
+                  <thead>
+                  <tr>
+                    <!--<th scope="col"></th>-->
+                    <th >Date</th>
+                    <th  class="text-left pl-2"> Email</th>
+                  </tr>
+                  </thead>
+                  <tbody>
+                  <tr *ngFor="let dta of EmailData" >
+                    <td>{{dta.date | date}}</td>
+                    <td class="text-left pl-2 font-weight-bold">
+                      {{dta.email}}
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+</div>
+

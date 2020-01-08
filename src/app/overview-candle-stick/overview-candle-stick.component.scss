@@ -1,0 +1,52 @@
+.crypt-table-market-cap tbody tr td:nth-last-child(2){
+
+  padding: 10px !important;
+}
+.crypt-table-market-cap tbody tr td{
+  padding: 10px !important;
+  text-align: left !important;
+}
+
+.side-line h5{
+  font-size: 15px;
+}
+.crypt-table-market-cap tbody tr th{
+  padding: 10px !important;
+}
+
+.img-l{
+  text-align: left !important;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: -3px;
+}
+.crypt-table-market-cap tbody tr th{
+
+  text-align: right !important;
+}
+.coin-meta-data{
+  margin: 5px;
+}
+
+@media only screen and (max-width: 600px){
+  .side-line {
+    padding: 5px !important;
+    padding-left: 10px !important;
+    margin: 5px !important;
+  }
+  .side-line h5 {
+    display: inline-block;
+    font-size: smaller !important;
+    font-weight: 600;
+
+  }
+  .side-line h6{
+    font-size: smaller;
+  }
+
+}
+
+.chartUi{
+  position:relative;
+  width: 100%;
+}

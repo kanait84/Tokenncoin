@@ -1,0 +1,6 @@
+<app-header appNoRightClick *ngIf="!router.url.includes('174bb5549686c555c6b9')"></app-header>
+<router-outlet appNoRightClick></router-outlet>
+<app-footer appNoRightClick *ngIf="!router.url.includes('174bb5549686c555c6b9')"></app-footer>
+<div class="scroll-top" [ngClass]="{'show-scrollTop': this.windowScrolled == true}" *ngIf="this.windowScrolled == true" (click)="topNavigation()">
+  <i class="fa fa-angle-up"></i>
+</div>

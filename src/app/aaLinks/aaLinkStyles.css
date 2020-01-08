@@ -1,0 +1,63 @@
+b {
+  font-size: 20px;
+}
+.side-cont{
+  padding: 30px;
+}
+
+.toggle-btn{
+  background-color: transparent;
+  margin: 10px;
+  padding: 10px;
+  border-radius: 15px;
+}
+
+.btn-cont-e{
+  position: relative;
+  margin-top: 30px;
+}
+
+.g-icon{
+  width: 100%;
+  margin: 5px 10px 5px 0px;
+}
+.crypto-btn{
+  margin-right: 0px;
+}
+.letter{
+  font-weight: bold;
+  font-size: 45px;
+  text-decoration: underline;
+}
+
+.gl-beg h2{
+  font-size: 20px;
+  font-weight: 700;
+}
+.gl-beg p{
+  font-size: 120%;
+}
+.g-cont{
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.gl-advance{
+  font-size: 17px;
+}
+@media only screen and (max-width: 600px) {
+  b {
+    font-size: 16px;
+  }
+  .toggle-btn {
+    width: 50% !important;
+    margin: 0px;
+    padding-right: 0px;
+  }
+  .btn-cont-e{
+    padding: 10px;
+  }
+  .side-cont{
+    margin-top: 10px !important;
+  }
+
+}

@@ -1,0 +1,171 @@
+<div class="container" appNoRightClick *ngIf="this.coinData">
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row" style="margin-top: 120px">
+  <!--  <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>-->
+    <div class="col-md-12 main-title p-d-5" >
+      <div class="side-cont">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="mb-coin-headers">
+              <div class="d-inline-block watch-btn-c" style="margin-right: 10px">
+                <div class="watch-btn"  *ngIf="!watchList?.includes(coinData?.slug)" (click)="adToWatchList(coinData?.slug)"><i class="fa fa-star-o fa-3x"> </i></div>
+                <div class="watch-btn" *ngIf="watchList?.includes(coinData?.slug)"  (click)="adToWatchList(coinData?.slug)"><i style="color: #f8a41b" class="fa fa-star fa-3x"> </i></div>
+              </div>
+            <img  alt="coin" class="pr-1 crypt-market-cap-logo" src="{{coinData?.medium_icon}}" width="30">
+            <h1 class="main" style="display: contents;"><strong>{{coinData?.name}}</strong></h1>
+            <a class="gro c-up">({{coinData?.symbol}})</a>
+            <hr class="d-xs-block d-sm-block d-md-none d-sm-none">
+            <h2 class="crypt-up" style="margin-left: 20px"><b>{{currencyString}} {{coinData?.price_usd * convertValue| number}}</b>
+              <span class="change-tag-plus" *ngIf="coinData?.change_per_24h > 0"> + {{coinData?.change_per_24h| number}} % <img class="arr-img" src="assets/images/arrow-up.png"></span>
+              <span class="change-tag-minus" *ngIf="coinData?.change_per_24h <= 0"> {{coinData?.change_per_24h| number}} % <img src="assets/images/arrow-down.png"> </span></h2>
+               <div  class="dropdown convert-l d-none d-sm-inline" >
+                 <a class="crypt-heading-menu" style="margin: unset;">
+                   <a class="crypt-btn crypt-button-inline crypt-btn-yellow
+        dropdown-toggle c-up dropdown-mb" aria-expanded="false" aria-haspopup="true"
+                      id="currencyConvert" data-toggle="dropdown" style="width: fit-content; margin-top: -5px">
+                     <img class="cur-flags" style="margin-right: 8px" src="assets/images/flags/{{currencyString}}.svg" width="20">
+                     {{currencyString}}<i class="pe pe-7s-angle-down-circle"></i></a>
+                   <div class="dropdown-menu" aria-labelledby="currencyConvert">
+                     <ng-container *ngFor="let cur of currencies?.rates| keyvalue">
+                       <a class="pull-left dropdown-toggle c-up  c-drop-down" *ngIf="validCurrencies.includes(cur.key)"  (click)="onCurrency(cur.key,cur.value)">
+                         <img class="cur-flags" style="margin-right: 2px" src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}">{{cur.key}}</a>
+                     </ng-container>
+                   </div>
+                 </a>
+      </div>
+            </div>
+            <hr>
+          </div>
+        <div class="col-md-7">
+          <p class="top-values"><a class="gro-static" style="font-size: 20px"> {{'Rank'| translate}} <i class="pe pe-7s-graph3"></i> {{coinData?.rank|number}}</a>
+            <a class="gro-static" *ngIf="coinData?.url[0]?.tags && coinData?.slug !=='abbc-coin'">{{coinData?.url[0]?.tags}}</a> <a class="d-md-inline d-xs-none"><i class="pe pe-7s-clock"></i> {{coinData?.last_updated | date:'HH:mm:ss | yyyy-MMM-dd'}}</a></p>
+
+          <div class="row">
+          </div>
+          <div class="row">
+            <!--<img class="img-blured" src="{{coinData?.Chart}}">-->
+
+            <div class="col-md-3 pl-0 pr-0 col-6 ">
+              <div class="side-line mt-4">
+                <div class="coin-meta-data text-left">
+                  <h5>{{'Market Cap'| translate}}</h5>
+                  <h6 >{{currencyString}} <br> {{coinData?.market_cap_usd * convertValue |number}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 pl-0 pr-0 col-6 ">
+              <div class="side-line mt-4">
+                <div class="coin-meta-data text-left">
+                  <h5>{{'24h Volume'| translate}}</h5>
+                  <h6 > {{currencyString}} <br> {{coinData?.volume_24h * convertValue | number}}</h6>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-3 pl-0 pr-0 col-6 ">
+              <div class="side-line mt-4">
+            <div class="coin-meta-data text-left">
+              <h5>{{'Circulating Supply' | translate}}</h5>
+              <h6 >{{coinData?.symbol}} <br> {{coinData?.circulating_supply | number}}</h6>
+            </div>
+              </div>
+            </div>
+            <div class="col-md-3 pl-0  col-6 ">
+              <div class="side-line mt-4">
+                <div class="coin-meta-data text-left">
+                  <h5>{{'Max Supply'| translate}}</h5>
+                  <h6 >{{coinData?.symbol}} <br> <span *ngIf="coinData?.max_supply == null"> <i class="pe pe-7s-loop"></i></span> {{coinData?.max_supply | number}}</h6>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-5 col-12 pl-0 pr-0">
+          <div class="light-c-bck">
+          <p><b><i class="pe pe-7s-search fa-2x"></i>  {{'Explorer' |translate}} </b> :
+            <a *ngFor="let i of coinData?.url[0]?.urls?.explorer;" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+            <a *ngFor="let i of CoinAdditionalLinks?.explorer" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+          </p>
+          <p *ngIf="coinData?.url[0]?.urls?.source_code[0] || CoinAdditionalLinks?.source_code[0]"><b><i class="fa fa-code fa-2x"></i> {{'Source Code' | translate}} </b> :
+            <a  *ngFor="let i of coinData?.url[0]?.urls?.source_code;let in = index"  href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('www.','').replace('.com','').replace('.net','').replace('.org','').split('/')[0]}} <br></a>
+            <a *ngFor="let i of CoinAdditionalLinks?.source_code" href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+          </p>
+          <p *ngIf="coinData?.url[0]?.urls?.technical_doc[0] || CoinAdditionalLinks?.technical_doc[0]"><b><i class="pe pe-7s-news-paper fa-2x"></i> {{'White Paper'| translate}}  </b> :
+            <a  *ngFor="let i of coinData?.url[0]?.urls?.technical_doc;let in = index"  href="{{i}}" target="_blank" class="url-link">{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}  <br></a>
+            <a *ngFor="let i of CoinAdditionalLinks?.technical_doc" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+          </p>
+            <hr>
+            <p *ngIf="coinData?.url[0]?.urls?.website[0] || CoinAdditionalLinks?.website[0]"><b>
+              <i class="fa fa-globe fa-2x"></i></b> :
+              <ng-container *ngIf="coinData?.url[0]?.urls?.website[0]">
+                <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.website"  href="{{i}}" target="_blank">
+                  {{i}}</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.website[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.website"  href="{{i}}" target="_blank">
+                  {{i}}</a>
+              </ng-container>
+            </p>
+            <p><b><i class="fa fa-bullhorn fa-2x"></i></b> :
+              <ng-container *ngIf="coinData?.url[0]?.urls?.twitter[0]">
+                <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.twitter"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;">
+                  </i> {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.twitter[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.twitter"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;"> </i>
+                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+              </ng-container>
+              <ng-container *ngIf="coinData?.url[0]?.urls?.reddit[0]">
+                <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.reddit"  href="{{i}}" target="_blank"><i class="fa fa-reddit" style="color: #FF4301 !important;"> </i>
+                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.reddit[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.reddit"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;"> </i>
+                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+              </ng-container>
+            </p>
+          </div>
+        </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="row">
+    <div class="col-md-12 col-12 p-d-5">
+        <div style="margin-top: 10px">
+          <a class="crypt-btn crypt-button-inline crypt-btn-green btn-xs"  [ngClass]="{'selected-btn':overView ===true}" (click)="overViewOn()" ><i class="pe pe-7s-science"></i> {{'Overview' | translate}} </a>
+          <a class="crypt-btn crypt-button-inline crypt-btn-green btn-xs"  [ngClass]="{'selected-btn':markets ===true}" (click)="MarketsOn()"> <i class="pe pe-7s-shuffle"></i>  {{'Exchanges'| translate}}</a>
+       <a class="crypt-btn crypt-button-inline crypt-btn-green btn-xs" [ngClass]="{'selected-btn':historicalData ===true}" (click)="historicalDataOn()"> <i class="pe pe-7s-timer"></i> {{'Historical Data'| translate}}</a>
+          <a class="crypt-btn crypt-button-inline crypt-btn-green btn-xs pull-right" style="min-width: 80px;text-align: center" [ngClass]="{'selected-btn':graphs ===true}" (click)="chartsOn()"><i class="pe pe-7s-graph1"></i></a>
+        </div>
+      </div>
+  </div>
+      <div class="row">
+        <div class="col-md-12 p-d-5">
+        <app-overview *ngIf="overView==true"></app-overview>
+        <app-markets [fcurrency]="currencyString" [fcurrencyValue]="convertValue"  *ngIf="markets==true"></app-markets>
+        <app-overview-candle-stick *ngIf="graphs==true"></app-overview-candle-stick>
+        <app-coinsocial *ngIf="social==true"></app-coinsocial>
+          <app-coin-histori [fcurrency]="currencyString" [fcurrencyValue]="convertValue" *ngIf="historicalData==true"></app-coin-histori>
+        </div>
+        <!--<div class="col-md-1 pl-0 pr-0 d-xs-none d-md-block">
+          <a href="https://aladdinmc.com/" target="_blank" >
+          <img class="w-100" src="assets/images/adv1.gif">
+          </a>
+        </div>-->
+      </div>
+    </div>
+
+<div class="c-bck" *ngIf="currencyPopup === true" (click)="closepop()">
+  <div class="coming-soon-anim currency-popup">
+    <div class="row">
+      <ul style="padding-left: 0px">
+        <li class="dropdown-item w-r" *ngFor="let cur of currencies?.rates| keyvalue" (click)="onCurrency(cur.key,cur.value)" >
+          <span ><img class="cur-flags"  src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}"></span> {{cur.key}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

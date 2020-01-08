@@ -1,0 +1,73 @@
+<div class="container" appNoRightClick>
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row top-m-adj">
+   <!-- <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>-->
+    <div class="col-md-12">
+      <h1>{{'Events'| translate}}</h1>
+      <hr>
+      <div class="dropdown show">
+        <a class="btn dropdown-btn dropdown-toggle margin-adj" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span *ngIf="selectedEventType !=='All'">{{selectedEventType}} <i class="pe pe-7s-angle-down-circle"></i> </span>
+          <span *ngIf="selectedEventType =='All'">Event Type <i class="pe pe-7s-angle-down-circle"></i></span>
+        </a>
+        <div class="dropdown-menu event-country-drop" aria-labelledby="dropdownMenuLink">
+          <a   *ngFor="let opt of eventTypes" >
+            <a class="dropdown-item" (click)="eventTypeChange(opt)">{{opt}}</a>
+          </a>
+        </div>
+      </div>
+      <div class="dropdown show">
+        <a class="btn dropdown-btn dropdown-toggle margin-adj" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span *ngIf="selectedCountry !==''">{{selectedCountryName}} <i class="pe pe-7s-angle-down-circle"></i> </span>
+          <span *ngIf="selectedCountry ==''">Country <i class="pe pe-7s-angle-down-circle"></i></span>
+        </a>
+        <div class="dropdown-menu event-country-drop" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item " (click)="eventCountryChange('', 'ALL')">ALL</a>
+          <a  *ngFor="let cnt of availableCountries | keyvalue" >
+            <span *ngFor="let cntv of eventsCountry">
+              <a class="dropdown-item"  *ngIf="cntv.code == cnt?.value" (click)="eventCountryChange(cnt?.value, cntv?.country)">{{cntv?.country}}</a>
+            </span>
+          </a>
+        </div>
+      </div>
+      <div class="dropdown show" hidden>
+        <a class="btn dropdown-btn dropdown-toggle margin-adj" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          <span *ngIf="selectedDate ==''">ALL <i class="pe pe-7s-angle-down-circle"></i> </span>
+          <span *ngIf="selectedDate !==''">{{selectedDate}} <i class="pe pe-7s-angle-down-circle"></i></span>
+        </a>
+        <div class="dropdown-menu event-country-drop" aria-labelledby="dropdownMenuLink">
+          <a class="dropdown-item " (click)="eventDateChangeAll()">ALL</a>
+          <a  class="dropdown-item" (click)="eventDateChange('This Week')"> This Week </a>
+          <a  class="dropdown-item" (click)="eventDateChange('Next Week')"> Next Week </a>
+          <a  class="dropdown-item" > This Month </a>
+          <a  class="dropdown-item" > Next Month </a>
+        </div>
+      </div>
+
+      <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+    </div>
+
+    <div class="row mt-5">
+        <ng-template ngFor let-eve [ngForOf]="filteredEvents">
+    <div class="col-md-4" *ngIf="eve.country.includes(selectedCountry) "> <!--&& eve.start_date.includes(dt)-->
+      <div    class="event-cont" (click)="redirect(eve?.website)">
+        <img *ngIf="eve?.screenshot !='missing_original.png'"  src="{{eve?.screenshot}}" alt="">
+        <img *ngIf="eve?.screenshot =='missing_original.png'" src="assets/images/event-cal.png" alt="">
+        <span class="event-main-title"> {{eve?.title}}</span>
+        <hr>
+        <div class="event-sub-title"> <i class="fa fa-calendar"></i> Start Date : <strong>{{ eve?.start_date}}</strong></div>
+        <div class="event-sub-title"> <i class="fa fa-calendar"></i> End Date : <strong>{{ eve?.end_date}}</strong></div>
+        <div class="event-sub-title-venue"> <i class="fa fa-map-marker "></i> <strong> {{ eve?.venue}},
+          <span *ngFor="let cntv of eventsCountry">
+              <span  *ngIf="cntv.code == eve?.country">{{cntv?.country}}</span>
+            </span>
+        </strong></div>
+      </div>
+    </div>
+        </ng-template>
+  </div>
+
+
+</div>

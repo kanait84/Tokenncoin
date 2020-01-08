@@ -1,0 +1,132 @@
+.crypt-logo img{
+  cursor: pointer;
+}
+
+.crypt-logo img:focus{
+  outline: none;
+}
+.sub-menu ul{
+  margin: auto;
+
+}
+.m-menu-back{
+
+  height: 100%;
+  position: fixed;
+  top: 0px;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0);
+  z-index: 300;
+}
+
+.dropdown-menu{
+  background-color: white;
+  min-width: 100px;
+  width: 90px;
+}
+
+.dropdown-item{
+  color: #314958 !important;
+  padding: 5px;
+  font-size: 15px;
+}
+.dropdown-item:active{
+  background-color: white;
+
+}
+.dropdown-btn{
+  position: fixed;
+  top: 6px;
+  -webkit-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  -moz-box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  box-shadow: 1px 1px 3px 0px rgba(0,0,0,0.26);
+  color: #fff;
+  border: solid 1.5px transparent;
+  background-image: linear-gradient(120deg, #f47b22 0%, #f8a32b 11% , #284191 100%), linear-gradient(120deg, #f47b22 0%, #f8a32b 11% , #284191 100%);
+  background-origin: border-box;
+  background-clip: content-box, border-box;
+  box-shadow: 2px 1000px 1px #fff inset;
+  padding: .3rem 8px;
+  border-radius: 25px;
+  line-height: 2.05;
+  right: 65px;
+
+}
+
+.dropdown-btn:hover{
+  color: #314958;
+  border: solid 1.5px #808080;
+  background-image: linear-gradient(120deg, rgba(251, 0, 255, 0) 0%, rgba(0, 63, 255, 0) 100%), linear-gradient(120deg, rgba(251, 0, 255, 0) 0%, rgba(0, 63, 255, 0) 100%);
+}
+a .dropdown-item:focus:active{
+  color: white;
+}
+
+.dropdown-btn i {
+  margin-left: 4px
+}
+
+.l-img{
+  margin-right: 10px;
+}
+
+.sub-menu li span {
+  color: #e81b1b;
+}
+.mg-r-40{
+  margin-left: 65px;
+}
+.l-mg{
+  margin-top: -6px;
+}
+.night-mode-btn{
+  cursor: pointer;
+}
+
+
+@media only screen and (max-width: 600px){
+  .lang-mobile{
+
+    position: inherit;
+    margin: auto;
+    text-align: center;
+  }
+  .crypt-logo img{
+    width: 60% !important;
+    height: auto !important;
+    padding: 5px;
+    margin-left: 0px;
+    margin-top: 15px;
+}
+}
+.crypt-logo img{
+  width: 100%;
+  height: auto !important;
+  padding: 5px;
+  margin-left: 0px;
+  margin-top: 10px;
+}
+
+
+@media (min-width: 768px) {
+.night-mode-btn{
+  position: fixed;
+  top: 20px;
+  right: 25px;
+}
+
+
+}
+.form-control{
+  top: 15px;
+  right: 169px;
+  width: fit-content;
+}
+
+span:focus{
+  outline-color: rgba(255, 255, 255, 0);
+}
+
+.active-m{
+  color: #f48019 !important;
+}

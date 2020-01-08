@@ -1,0 +1,86 @@
+<div class="container">
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row top-m-adj">
+    <div class="col-md-10 offset-md-1">
+    <!--  <div class="row">
+        <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+          <img class="resp-ad"  src="assets/images/ad.gif">
+        </a>
+      </div>-->
+      <h1> {{'News'| translate}}</h1>
+      <!--<a href="" class="crypt-btn crypt-button-inline crypt-btn-green dropdown-toggle c-up"
+         id="currencyConvert" data-toggle="dropdown" aria-haspopup="true"
+         aria-expanded="false">Source : <strong>{{selectedSource}}</strong><i class="pe pe-7s-angle-down-circle"></i></a>
+      <div class="dropdown-menu" aria-labelledby="currencyConvert">
+        <a class="dropdown-item w-r" (click)="sourceChange('ALL')" >ALL</a>
+        <div *ngFor="let cur of newsSources">
+          <a class="dropdown-item w-r"  (click)="sourceChange(cur.key)" >{{cur.name}}</a>
+        </div>
+
+      </div>-->
+      <div class="row">
+        <div class="col-md-8">
+          <input class="form-control"  type="text" placeholder="{{'Search'|translate}} {{'News'| translate}}" [(ngModel)]="searchParam">
+        </div>
+        <div class="col-md-4">
+          <div class="dropdown show pull-right m-t-20" style="margin-right: 5px;margin-left: 5px">
+            <a class="btn dropdown-btn dropdown-toggle margin-adj" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span *ngIf="selectedCategory !==''">{{selectedCategory}} <i class="pe pe-7s-angle-down-circle"></i> </span>
+              <span *ngIf="selectedCategory ==''">Categories <i class="pe pe-7s-angle-down-circle"></i></span>
+            </a>
+            <div class="dropdown-menu event-country-drop" aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item " (click)="catergoryChange('')">ALL</a>
+              <a  *ngFor="let ctg of catergoryFilterOptions" >
+            <span >
+              <a class="dropdown-item"   (click)="catergoryChange(ctg)">{{ctg}}</a>
+            </span>
+              </a>
+            </div>
+          </div>
+          <div class="dropdown show pull-right m-t-20" style="margin-right: 5px;margin-left: 5px">
+            <a class="btn dropdown-btn dropdown-toggle margin-adj" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <span *ngIf="selectedNewsType !==''"><i class="pe pe-7s-gleam" aria-hidden="true"></i> Top News <i class="pe pe-7s-angle-down-circle"></i> </span>
+              <span *ngIf="selectedNewsType ==''"><i class="pe pe-7s-clock"></i> Latest <i class="pe pe-7s-angle-down-circle"></i></span>
+            </a>
+            <div class="dropdown-menu event-country-drop " aria-labelledby="dropdownMenuLink">
+              <a class="dropdown-item " (click)="typeChanges('top')"><i class="pe pe-7s-gleam" aria-hidden="true"></i>  Top News</a>
+              <a class="dropdown-item " (click)="typeChanges('')"><i class="pe pe-7s-clock"></i>  Latest</a>
+            </div>
+          </div>
+        </div>
+
+
+      </div>
+      <hr>
+
+    </div>
+    <div class="col-md-10 offset-md-1" style="overflow: hidden">
+      <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+      <div *ngFor="let ndata of newsData; let i= index" >
+      <div class="news-cont" *ngIf="ndata.title.toLowerCase().includes(searchParam.toLowerCase()) && ndata.catagory.includes(selectedCategory)">
+       <div class="row">
+         <div class="col-md-3">
+           <img (click)="redirect(ndata?.url)" *ngIf="ndata?.image_url" class="m-img" [src]="ndata?.image_url" (error)="defaultURL">
+           <img  *ngIf="!ndata?.image_url" class="m-img" src="assets/images/default-news.jpg"  >
+         </div>
+         <div class="col-md-9">
+           <h5 (click)="redirect(ndata?.source_domain)" style="width: fit-content"><img class="ic-img" src="{{ndata?.sourse_favicon}}"> {{ndata?.source_name}}</h5>
+           <h4 (click)="redirect(ndata?.url)"> {{ndata?.title}}</h4>
+           <h6><i class="pe pe-7s-clock"></i> {{ndata?.publishedAt| date:'HH:mm | yyyy-MMM-dd'}} </h6>
+           <hr>
+           <p [innerHTML]="ndata?.description">  </p>
+           <p><i class="pe pe-7s-ribbon"></i>  <span class="categories-tag">{{'Categories' | translate}} <span>{{ndata?.catagory}}</span></span> </p>
+         </div>
+       </div>
+      </div>
+      </div>
+
+
+
+    </div>
+
+
+
+  </div>
+</div>
+<hr>

@@ -1,0 +1,136 @@
+<div class="container" appNoRightClick>
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <h1 style="display: none">Exchanges </h1>
+  <div class="row sm-gutters" style="margin-top: 100px !important;" >
+   <!-- <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-top: 20px;">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>-->
+    <br>
+    <div class="col-md-12">
+      <div class="side-cont banner-bg-w" >
+        <div class="row">
+          <div class="col-md-3">
+            <img class="about-img" alt="tokenncoin app" src="./assets/images/banner-l.png" style="width: 100%;object-fit: contain;margin: 0px;max-height: 230px">
+          </div>
+          <div class="col-md-6" style="margin: auto">
+            <h2 class="text-center">Download Now</h2>
+            <p class="text-center" style="max-width: 600px;margin: auto;display: block;margin-bottom: 20px">
+              Tokenncoin is a one-stop market research platform that ranks and analyzes all the blockchain-based coins and tokens in the crypto market.
+            </p>
+            <span class="banner-btn-group">
+        <a (click)="comingSoon('IOS App')" class="banner-ad-download-btn"><img src="assets/images/apps-store.png"></a>
+      <a href="https://play.google.com/store/apps/details?id=com.tokenncoin.marketcap" target="_blank"  class="banner-ad-download-btn"><img src="assets/images/google-play.png"></a>
+
+      </span>
+
+          </div>
+          <div class="col-md-3 d-xs-none d-md-block">
+            <img class="about-img" alt="tokenncoin app" src="./assets/images/banner-r.png" style="width: 100%;object-fit: contain;margin: 0px;max-height: 230px">
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--<div class="col-md-1 d-xs-none d-md-block" style="padding-right: 20px">
+      <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-top: 20px;">
+      <img style="margin-top: 600px" class="advertise-v-r" src="assets/images/adv1.gif">
+      </a>
+    </div>-->
+    <div class="col-md-12 mt-4">
+      <a routerLink="/cryptocurrencies" class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs"
+         aria-expanded="false" >{{'Crypto Currencies'| translate}}<i class="pe pe-7s-angle-down-circle"></i></a>
+      <a routerLink="/exchanges" class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs selected-btn"
+         aria-expanded="false"  >{{'Exchanges'| translate}}<i class="pe pe-7s-angle-down-circle"></i></a>
+      <a routerLink="/watchlist" class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs">
+        {{'Watchlist'| translate}} <i class="pe pe-7s-timer"></i></a>
+
+      <hr class="d-xs-block d-sm-block d-md-none d-sm-none">
+
+      <div  class="dropdown convert-l d-none d-sm-inline">
+        <a class="crypt-heading-menu" style="margin: unset;">
+          <a class="crypt-btn crypt-button-inline crypt-btn-yellow
+        dropdown-toggle c-up dropdown-mb" aria-expanded="false" aria-haspopup="true"
+             id="currencyConvert" data-toggle="dropdown" style="width: fit-content">
+            <img class="cur-flags" style="margin-right: 8px" src="assets/images/flags/{{fcurrency}}.svg" width="20">
+            {{fcurrency}}<i class="pe pe-7s-angle-down-circle"></i></a>
+          <div class="dropdown-menu" aria-labelledby="currencyConvert">
+            <ng-container *ngFor="let cur of currencies?.rates| keyvalue">
+              <a class="pull-left dropdown-toggle c-up  c-drop-down" *ngIf="validCurrencies.includes(cur.key)"  (click)="onCurrency(cur.key,cur.value)">
+                <img class="cur-flags" style="margin-right: 2px" src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}">{{cur.key}}</a>
+            </ng-container>
+          </div>
+        </a>
+      </div>
+    </div>
+<div   class="col-md-12">
+  <div class="table-responsive-m">
+    <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+    <table class="table table-striped crypt-table-market-cap " [mfData]="exchangeData"  #mf="mfDataTable"  [mfRowsOnPage]="50" >
+
+      <thead>
+      <tr>
+        <th scope="col" class="text-center pl-2 tbl-h"><mfDefaultSorter >  #</mfDefaultSorter></th>
+        <th scope="col" class="text-left pl-2 tbl-h"><mfDefaultSorter >  {{'Exchanges'| translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="volume_24h_adjusted"> <i class="fa fa-sort" aria-hidden="true" ></i> {{'24h Volume (Normalized)'| translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="volume_24h"> <i class="fa fa-sort" aria-hidden="true" ></i> {{'24h Volume'|translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="percent_change_volume_24h" translate> <i class="fa fa-sort" aria-hidden="true"></i> {{'24h Change'|translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="pairs"> <i class="fa fa-sort" aria-hidden="true" ></i> {{'Pair'|translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="percent_change_volume_24h"> {{'7 Days'|translate}}</mfDefaultSorter></th>
+        <th scope="col" class="tbl-h"><mfDefaultSorter by="year_established"> <i class="fa fa-sort" aria-hidden="true" ></i> {{'Established'|translate}}</mfDefaultSorter></th>
+      </tr>
+      </thead>
+      <tbody>
+
+
+      <tr *ngFor ="let dataz of mf.data;let i = index">
+        <td><b>{{((mf.activePage-1)*50)+(i+1)}}</b></td>
+        <td class="text-left font-weight-bold" style="max-width: 145px;overflow: hidden;text-overflow: ellipsis"><img  src="{{dataz?.icon}}" width="26" class="img-l" alt="coin">
+          <a [routerLink]="['/exchanges/',dataz?.slug]">{{dataz?.name}}</a></td>
+        <td class="c-up">{{dataz?.volume_24h_adjusted * fcurrencyValue|currency: fcurrency : 'symbol' : '1.2-2'}}</td>
+        <td class="c-up">{{dataz?.volume_24h * fcurrencyValue|currency: fcurrency : 'symbol' : '1.2-2'}}</td>
+        <td class="c-up"> <span *ngIf="dataz?.percent_change_volume_24h < 0" class="change-tag-minus">{{dataz?.percent_change_volume_24h| number : '1.2-2'}} %</span>
+          <span *ngIf="dataz?.percent_change_volume_24h >= 0" class="change-tag-plus">{{dataz?.percent_change_volume_24h| number : '1.2-2'}} %</span>
+        </td>
+        <td class="c-up"><span class="change-tag">{{dataz?.pairs| number}}</span></td>
+        <td>
+          <!--<img class="waves waves-effect" src="assets/images/waves.png" alt="" >-->
+          <img src="{{dataz?.Chart_7d}}"  class="waves pr-1 gray-graph" alt="coin">
+        </td>
+        <td>{{dataz?.year_established| date}} <!--<span style="text-transform: uppercase">{{data.symbol}}</span>--></td>
+      </tr>
+
+      </tbody>
+      <tfoot>
+      <tr>
+        <td colspan="4">
+          <mfBootstrapPaginator></mfBootstrapPaginator>
+        </td>
+      </tr>
+      </tfoot>
+
+    </table>
+  </div>
+</div>
+  </div>
+</div>
+<div class="c-bck" *ngIf="comingsoonShow === true" (click)="closepop()">
+  <div class="coming-soon-anim">
+    <div style="display: block; margin: auto">
+      <p class="text-center"><b>COMING SOON </b> on the {{popuptext}} Store! </p>
+      <hr>
+      <a class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs"
+         aria-expanded="false" (click)="closepop()">{{'Close'| translate}}<i class="pe pe-7s-close"></i></a>
+    </div>
+
+  </div>
+
+</div>
+<div class="c-bck" *ngIf="currencyPopup === true" (click)="closepop()">
+  <div class="coming-soon-anim currency-popup">
+    <div class="row">
+      <ul style="padding-left: 0px">
+        <li class="dropdown-item w-r" *ngFor="let cur of currencies?.rates| keyvalue" (click)="onCurrency(cur.key,cur.value)" >
+          <span ><img class="cur-flags"  src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}"></span> {{cur.key}}</li>
+      </ul>
+    </div>
+  </div>
+</div>

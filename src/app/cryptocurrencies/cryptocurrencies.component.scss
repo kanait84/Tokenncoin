@@ -1,0 +1,91 @@
+.w-r{
+  width: 80px;
+  font-size: small;
+
+}
+.change-tag-plus{
+  padding: 5px;
+  white-space: nowrap;
+  color: green !important;
+  font-weight: 600;
+}
+
+.change-tag-minus{
+  padding: 5px;
+  white-space: nowrap;
+  color: #ff0011 !important;
+  font-weight: 600;
+}
+
+.light-l{
+  font-weight: 100;
+  margin-left: 5px;
+}
+
+
+.side-cont div{
+  padding: 10px;
+
+
+}
+.side-cont p{
+  font-size: medium;
+}
+
+.side-cont{
+  margin-top: 20px;
+  overflow: hidden;
+}
+
+
+.side-cont h3{
+  margin-top: 20px;
+}
+
+
+@media only screen and (max-width: 600px){
+  .side-cont p{
+    font-size: unset;
+    padding: 10px;
+  }
+  .side-cont h3 {
+    padding-left: 10px;
+  }
+  .dropdown-mb{
+    float: left;
+    width: 27%;
+    text-align: center;
+    padding: 8px;
+  }
+
+
+}
+
+
+
+.crypt-table-market-cap tbody tr th{
+  padding: 0.8rem !important;
+}
+.table th, .table td{
+
+}
+.coin-name{
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+  max-width: 150px;
+}
+.about-img{
+  width: 100%;
+  height: 120%;
+  margin-top: -20px;
+  margin-bottom: -20px;
+  margin-left: -20px;
+  -o-object-fit: fill;
+  object-fit: cover;
+}
+
+
+a.crypt-btn.crypt-button-inline.crypt-btn-yellow.pull-right.dropdown-toggle.c-up.dropdown-mb {
+  width: 60px;
+}

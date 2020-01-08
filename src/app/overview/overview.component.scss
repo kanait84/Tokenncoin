@@ -1,0 +1,81 @@
+.crypt-table-market-cap tbody tr td:nth-last-child(2){
+
+  padding: 10px !important;
+}
+.crypt-table-market-cap tbody tr td{
+  padding: 10px !important;
+  text-align: left !important;
+}
+
+.side-line h5{
+  font-size: 15px;
+}
+.crypt-table-market-cap tbody tr th{
+  padding: 10px !important;
+}
+
+.img-l{
+  text-align: left !important;
+  height: 20px;
+  margin-right: 5px;
+  margin-top: -3px;
+}
+.crypt-table-market-cap tbody tr th{
+
+  text-align: right !important;
+}
+.coin-meta-data{
+  margin: 5px;
+}
+
+@media only screen and (max-width: 600px){
+  .side-line {
+    padding: 5px !important;
+    padding-left: 10px !important;
+    margin: 5px !important;
+  }
+  .side-line h5 {
+    display: inline-block;
+    font-size: smaller !important;
+    font-weight: 600;
+
+  }
+  .side-line h6{
+    font-size: smaller;
+  }
+
+}
+
+.chartUi{
+  position:relative;
+  width: 100%;
+}
+.just-line{
+  width: 25px;
+  height: 5px;
+  margin-top: 8px;
+  margin-left: 8px;
+  margin-right: 5px;
+  display: inline-block;
+}
+.just-line-t{
+  color: #a3a3a3;
+}
+.chart-leg{
+  display: block;
+  margin: auto;
+}
+.btn-date-f{
+  background-color: rgba(196, 196, 196, 0.61);
+  margin-left: 2px;
+  margin-right: 2px;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+
+.gr-selected{
+  background-color: rgb(223, 223, 223);
+  border: 2px solid rgba(45, 45, 45, 0.3) !important;
+  outline: none;
+}

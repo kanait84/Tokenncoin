@@ -1,0 +1,34 @@
+<div class="col-md-12" appNoRightClick>
+  <div class="table-responsive" style="margin-top: 20px;margin-bottom: 50px">
+    <table class="table table-striped crypt-table-market-cap ">
+      <tbody>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-facebook"> </i> Facebook Likes</th>
+        <td><span class="table-v">{{coinData.community_data.facebook_likes| number}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-twitter"> </i> Twitter Followers</th>
+        <td><span class="table-v">{{coinData.community_data.twitter_followers| number}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-reddit"> </i> Reddit Account Active (48h)</th>
+        <td><span class="table-v">{{coinData.community_data.reddit_accounts_active_48h| number}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-reddit"> </i> Reddit Average Comments (48h)</th>
+        <td><span class="table-v">{{coinData.community_data.reddit_average_comments_48h| number}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-reddit"> </i> Reddit Average Posts (48h)</th>
+        <td><span class="table-v">{{coinData.community_data.reddit_average_posts_48h| number}}</span></td>
+      </tr>
+      <tr>
+        <th scope="row" class="text-left"><i class="fa fa-reddit"> </i> Reddit Subscribers</th>
+        <td><span class="table-v">{{coinData.community_data.reddit_subscribers| number}}</span></td>
+      </tr>
+
+      </tbody>
+    </table>
+  </div>
+</div>
+

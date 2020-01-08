@@ -1,0 +1,140 @@
+.crypt-fulldiv-linechart .coin-meta-data{
+  top: 30px;
+}
+
+.crypt-fulldiv-linechart .coin-meta-data{
+
+  position: unset !important;
+  transform: none;
+  left: unset;
+}
+.crypt-fulldiv-linechart{
+
+  padding: 22px 0px 20px 0;
+}
+.crypt-fulldiv-linechart h6{
+
+  font-weight: 600;
+}
+.crypt-fulldiv-linechart h5{
+  font-weight: 100;
+}
+h5{
+  font-size: 15px;
+  font-weight: 600;
+}
+.crypt-fulldiv-linechart .coin-meta-data h6{
+  border-bottom: 1px solid #dfdfdf;
+  padding-bottom: 12px;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 10px;
+}
+
+
+.side-cont{
+  padding: 20px;
+  box-shadow: 2px 4px 5px 1px rgba(0, 0, 0, 0.1);
+}
+
+.main-title h2{
+  display: inline-block;
+}
+.main-title h5{
+  display: inline-block;
+}
+
+.bv-per{
+  font-size: smaller;
+}
+
+
+.light-c-bck{
+  background-color: rgba(0, 0, 0, 0.02);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.04);
+}
+
+
+.social-m-info p{
+  display: inline-block;
+  padding: 10px;
+}
+
+.social-m-info span {
+  margin-left: 5px;
+}
+.img-l{
+
+  margin-right: 10px;
+}
+
+.act-mrk-tag{
+  padding: 5px;
+  background-color: #ebfc90;
+  border-radius: 10px;
+  color: #000;
+  display: inline-block;
+  margin: 54px 10px 10px;
+  position: absolute;
+  font-weight: bold;
+}
+
+.change-tag-plus{
+  white-space: nowrap;
+  color: green !important;
+  font-weight: 600;
+}
+
+.change-tag-minus{
+  white-space: nowrap;
+  color: #ff0011 !important;
+  font-weight: 600;
+}
+@media only screen and (max-width: 600px){
+  .side-cont{
+    padding: 10px 10px 10px 10px;
+  }
+  .gro-static{
+    margin-left: -10px;
+  }
+  .side-line h6{
+    font-size: smaller;
+  }
+  .main-title img.crypt-market-cap-logo {
+    margin-top: -10px !important;
+  }
+  .main-title img{
+    height: 30px;
+    width: auto;
+  }
+  .main-title .main {
+    font-size: 24px;
+    white-space: nowrap;
+    width: 100%;
+    text-align: center !important;
+  }
+  .mb-coin-headers{
+    h2{
+      font-size: 24px;
+      display: block;
+      margin-left: 3px !important;
+      /* padding-left: 0px !important; */
+      margin-top: 10px;
+      text-align: center;
+    }
+
+  }
+  .last-updated-block{
+    text-align: center;
+  }
+  .col-4{
+    padding: 0px;
+  }
+  .side-line {
+    padding: 3px !important;
+    padding-left: 3px !important;
+    margin: 5px !important;
+  }
+}

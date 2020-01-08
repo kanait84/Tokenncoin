@@ -1,0 +1,92 @@
+.crypt-table-market-cap thead tr th {
+  text-align: center;
+  padding: 15px 20px;
+  vertical-align: middle;
+}
+
+.crypt-table-market-cap tbody tr td {
+  padding: 15px 7px;
+  text-align: center;
+  color: #555555;
+}
+
+.st-tag{
+  color: white;
+  padding: 5px;
+  display: block;
+  width: 100%;
+  white-space: nowrap;
+  border-radius: 10px;
+}
+.tag-pre-sale{
+  background-color: #01d634;
+}
+.tag-ended{
+  background-color: #cd5644;
+}
+
+.tag-ongoing{
+  background-color: #0943ff;
+}
+
+.tag-upcoming{
+  background-color: #f7bd10;
+}
+
+.tag-unknown{
+  background-color: #edebec;
+  color: #555555;
+}
+
+.td-country{
+  min-width: 200px;
+}
+
+.td-timeline{
+  min-width: 200px;
+  white-space: nowrap;
+}
+.td-description{
+  font-size: 14px;
+  white-space: normal;
+
+}
+.filter-btn{
+  border: 2px solid rgba(255, 255, 255, 0.26);
+  color: #314958;
+  margin: 5px;
+}
+.filter-btn-active{
+  color: #ffffff !important;
+  font-weight: 500;
+  background-color: #e0e0e0;
+}
+
+img.crypt-market-cap-logo{
+  margin-left: 10px;
+}
+
+.capt{
+  text-transform: capitalize;
+}
+
+.td-ico{
+
+  width: 250px;
+  cursor: pointer;
+}
+
+.tag-platform{
+  background-color: #314958;
+  color: #fff !important;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+
+tr:hover{
+  -webkit-box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+  -moz-box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+  box-shadow:inset 0px 0px 0px 1px rgba(0, 0, 0, 0.08);
+
+}

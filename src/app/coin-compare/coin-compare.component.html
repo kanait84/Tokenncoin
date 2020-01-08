@@ -1,0 +1,134 @@
+<div class="container">
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row top-m-adj ">
+  <!--  <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>-->
+    <div class="col-md-12">
+      <div class="container">
+        <h1> {{'Coin Compare'| translate}}</h1>
+        <hr>
+
+        <div class="search-cont">
+          <ng-template #rt let-r="result"  let-t="term">
+            <li style="text-transform: capitalize" *ngIf="r?.type" (click)="onSearch(r?.slug)" (keypress)="onSearch(r?.slug)">
+              <img  src="https://api.tokenncoin.com/images/coins/small-icon/{{r?.slug}}.png"  alt="" width="22">
+              {{r?.name}}
+            </li>
+          </ng-template>
+          <input  id="typeahead-template" placeholder="Search" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
+                  [inputFormatter]="formatter" (keyup.enter)="onKeyEnter(model)"/>
+        </div>
+
+        <div class="compare-tag" *ngFor="let add of compareArray; let i = index" (click)="removeCompare(i)"><p >{{add?.name}}  <i class="fa fa-times"></i></p> </div>
+        <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+      </div>
+
+    </div>
+    <div class="container">
+    <div class="row mt-5" >
+      <div class="col-md-2 pr-0 d-none d-sm-block" >
+        <table class="table table-striped crypt-table-market-cap coin-comp-fixed">
+          <tbody class="compare-table">
+          <tr>
+            <th><strong>{{'Coin Name' | translate}}  </strong></th>
+          </tr>
+          <tr>
+            <th >{{'Rank'| translate}}</th>
+          </tr>
+          <tr>
+            <th ><strong>{{'7d Change' | translate}}</strong></th>
+          </tr>
+          <tr>
+            <th><strong>{{'Price'| translate}}</strong></th>
+          </tr>
+          <tr>
+            <th >{{'Market Cap'| translate}}</th>
+          </tr>
+          <tr>
+            <th >{{'Volume 24h'| translate}}</th>
+          </tr>
+          <tr>
+            <th >{{'Volume 7d'| translate}} </th>
+          </tr>
+          <tr>
+            <th>{{'Volume 30d'| translate}} </th>
+          </tr>
+
+          <tr>
+            <th >{{'Total Supply' | translate}}</th>
+          </tr>
+          <tr>
+            <th >{{'Max Supply' | translate}}</th>
+          </tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="col-md-10 pl-0" style="padding-left: 1px !important;">
+        <drag-scroll style="height: 680px;background-color: #fbfbfb;cursor: grab;">
+          <table class="table table-striped crypt-table-market-cap">
+            <tbody class="compare-table">
+            <tr>
+              <th class="d-sm-none"><strong>  </strong></th>
+              <td *ngFor="let comp of compareArray"><span class="no-wrap"><img src="{{comp?.small_icon}}"  alt=""> <strong>{{comp?.name}}  </strong></span></td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Rank'| translate}}</th>
+              <td *ngFor="let comp of compareArray">
+                {{comp?.rank| number}}
+              </td>
+            </tr>
+            <tr>
+              <th class="d-sm-none"><strong>{{'7d Change' | translate}}</strong></th>
+              <td *ngFor="let comp of compareArray"> <img src="{{comp?.Chart}}"></td>
+            </tr>
+            <tr>
+              <th class="d-sm-none"><strong>{{'Price'| translate}}</strong></th>
+              <td *ngFor="let comp of compareArray"> {{fcurrency}}  {{comp?.price_usd * fcurrencyValue| number}}</td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Market Cap'| translate}}</th>
+              <td *ngFor="let comp of compareArray"> {{fcurrency}} {{comp?.market_cap_usd * fcurrencyValue| number}}
+              </td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Volume 24h'| translate}}</th>
+              <td *ngFor="let comp of compareArray">
+                {{fcurrency}}  {{comp?.volume_24h * fcurrencyValue| number}}
+              </td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Volume 7d'| translate}} </th>
+              <td *ngFor="let comp of compareArray">
+                {{fcurrency}} {{comp?.volume_7d * fcurrencyValue| number}}
+              </td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Volume 30d'| translate}} </th>
+              <td *ngFor="let comp of compareArray">
+                {{fcurrency}} {{comp?.volume_30d * fcurrencyValue| number}}
+              </td>
+            </tr>
+
+            <tr>
+              <th class="d-sm-none">{{'Total Supply' | translate}}</th>
+              <td *ngFor="let comp of compareArray">
+                {{comp?.total_supply| number}}
+              </td>
+            </tr>
+            <tr>
+              <th class="d-sm-none">{{'Max Supply' | translate}}</th>
+              <td *ngFor="let comp of compareArray">
+                <span *ngIf="comp?.max_supply == null"> <i class="pe pe-7s-loop"></i></span>
+                <span *ngIf="comp?.max_supply != null"> {{comp?.max_supply| number}} </span>
+              </td>
+            </tr>
+            </tbody>
+          </table>
+        </drag-scroll>
+      </div>
+
+    </div>
+    </div>
+  </div>
+</div>

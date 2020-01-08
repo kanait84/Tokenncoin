@@ -1,0 +1,14 @@
+<ng-template #rt let-r="result"  let-t="term">
+    <li style="text-transform: capitalize" *ngIf="r?.type" (click)="onSearch(r?.slug)">
+      <img  src="https://api.tokenncoin.com/images/coins/small-icon/{{r?.slug}}.png"  alt="" width="22">
+      {{r?.name}}
+    </li>
+    <li style="text-transform: capitalize" *ngIf="!r?.type"  (click)="onSearchExchange(r?.slug)">
+      <img  src="https://api.tokenncoin.com/images/exchanges/small-icon/{{r?.slug}}.png"  alt="" width="22">
+      {{r?.name}}
+    </li>
+  </ng-template>
+<input  id="typeahead-template" placeholder="{{'Search' | translate}}" type="text" class="form-control" [(ngModel)]="model" [ngbTypeahead]="search" [resultTemplate]="rt"
+       [inputFormatter]="formatter" (keyup.enter)="onKeyEnter(model)"/>
+<hr>
+

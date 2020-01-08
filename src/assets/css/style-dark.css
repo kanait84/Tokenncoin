@@ -1,0 +1,186 @@
+body{
+  background-color: #101010 !important;
+  color: #b6b6b6 !important;
+}
+.tbl-h {
+  background-color: #3d3d3d !important;
+}
+
+.crypt-table-market-cap tbody tr td{
+  color: #b6b6b6 !important;
+}
+.table-striped tbody tr:nth-of-type(odd){
+  background-color: #272727 !important;
+  border-bottom: 1px solid rgba(81, 81, 81, 0.48);
+}
+.table-striped tbody tr:nth-of-type(even){
+  background-color: #1f1f1f !important;
+  border-bottom: 1px solid rgba(81, 81, 81, 0.48);
+}
+.crypt-table-market-cap tbody tr td a{
+  color: #c0c0c0 !important;
+}
+thead ,thead a {
+  color: #c0c0c0 !important;
+}
+.crypt-table-market-cap thead{
+  background-color: #3d3d3d !important;
+}
+.side-cont{
+  background-color: rgba(39, 34, 34, 0.7) !important;
+  border: 1px solid #ffffff36 !important;
+}
+.sub-menu{
+  background-color: #1f1f1f !important;
+  border: 1px solid #ffffff36 !important;
+}
+.sub-menu li{
+  color: #c0c0c0 !important;
+}
+.crypt-header{
+  background-color: #1f1f1f !important;
+}
+.crypt-heading-menu li a{
+  color: #f7f7f7 !important;
+}
+
+.form-control{
+  background-color: #323232 !important;
+  box-shadow: 2px 1000px 1px #323232 inset;
+}
+.form-control:focus {
+
+  color: #c0c0c0 !important;
+  background-color: #1f1f1f !important;
+}
+
+.crypt-btn{
+  color: #c0c0c0 !important;
+  box-shadow: 2px 1000px 1px #323232 inset !important;
+}
+.crypt-btn:hover{
+  color: #eeeeee !important;
+  box-shadow: 2px 1000px 1px #323232 inset !important;
+}
+.crypt-btn:active{
+  color: #c0c0c0 !important;
+  box-shadow: 2px 1000px 1px #323232 inset !important;
+}
+.selected-btn{
+  box-shadow:none !important;
+  color: #ffffff !important;
+}
+
+.dropdown-btn{
+  color: #f7f7f7 !important;
+  box-shadow: 2px 1000px 1px #000000 inset !important;
+}
+.dropdown-btn:hover{
+  color: #e5e5e5 !important;
+}
+.light-c-bck {
+  background-color: rgba(59, 59, 59, 0.67) !important;
+}
+.url-link {
+  color: rgba(199, 198, 198, 0.82) !important;
+  background-color: rgba(35, 35, 35, 0.45);
+}
+.crypt-up{
+  color: #c0c0c0 !important;
+}
+
+::-webkit-scrollbar {
+  background: transparent;
+  width: 10px;
+  height: 10px;
+}
+::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.6);
+  border: solid rgba(0,0,0,0) 6px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background-color: rgba(255, 255, 255, 0.9);
+}
+.news-cont{
+  background-color: rgba(50, 50, 50, 0.88) !important;
+  border: 1px solid rgba(241, 241, 241, 0.22) !important;
+}
+.crypt-table-market-cap {
+  background: #000;
+}
+.page-link {
+  color: #c0c0c0 !important;
+  background-color: rgb(31, 31, 31) !important;
+  border: #c0c0c0 !important;
+}
+.page-item.active .page-link {
+  background-color: #575757 !important;
+}
+.filter-btn {
+  color: #c0c0c0 !important;
+  box-shadow: 2px 1000px 1px #3d3d3d inset;
+}
+.filter-btn-active{
+  color: #ffffff !important;
+  box-shadow: 2px 1000px 1px rgba(61, 61, 61, 0) inset;
+}
+.event-cont {
+  background-color: rgba(45, 45, 45, 0.94) !important;
+}
+.event-main-title {
+  color: #c0c0c0 !important;
+}
+.event-sub-title , .event-sub-title-venue{
+  color: #b3b3b3 !important;
+}
+.crypt-mobile-menu{
+  background-color: #000000;
+}
+.search-list{
+  background-color: rgb(31, 31, 31) !important;
+}
+.search-header {
+  background-color: #000000 !important;
+}
+.search-list a:hover {
+  background-color: #2b2b2b !important;
+}
+.custom-drop {
+  background-color: rgb(31, 31, 31) !important;
+  position: absolute;
+  z-index: 2;
+  border: 1px solid rgba(247, 247, 247, 0.18);
+}
+.search-list a , .light-c-bck i{
+  color: #c0c0c0 !important;
+}
+
+.crypt-table-market-cap  .price-c{
+  color: #fff957 !important;
+}
+.coming-soon-anim{
+  background-color: rgb(31, 31, 31) !important;
+  border: 1px solid rgba(247, 247, 247, 0.18);
+}
+.banner-bg-w{
+  background-image: url('/assets/images/banner-b.png');
+  background-size: 100%;
+  background-color: #1f123d !important;
+  color: #ffffff !important;
+}
+
+.convert-l .dropdown-menu.show {
+  background-color: #1f1f1f !important;
+}
+
+.convert-l .dropdown-menu.show a {
+  color: #d0d0d0 !important;
+}
+@media only screen and (max-width: 600px) {
+  .banner-bg-w {
+    background-size: cover;
+  }
+}
+.coming-soon-anim .dropdown-item{
+  color: #fff !important
+}

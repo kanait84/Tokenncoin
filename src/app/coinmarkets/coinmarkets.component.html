@@ -1,0 +1,42 @@
+<div  style="width: 100%" appNoRightClick>
+  <div class="row">
+  <div class="col-md-12">
+    <div class="table-responsive-m">
+      <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+      <table class="table table-striped crypt-table-market-cap ">
+        <thead>
+        <tr>
+          <th scope="col" class="tbl-h"></th>
+          <th scope="col" class="text-left pl-2 tbl-h">{{'Market'| translate}}</th>
+          <th scope="col" class="text-center tbl-h">{{'Pair'| translate}}</th>
+          <th scope="col" class="tbl-h">{{'Price' | translate}}</th>
+          <th scope="col" class="tbl-h">{{'Volume 24h'| translate}}</th>
+          <th scope="col" class="tbl-h">{{'Category' | translate}}</th>
+          <th scope="col" class="tbl-h">{{'Fee Type'| translate}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let exc of exchangeData?.data; let i = index">
+          <th class="text-left">{{i+1}}</th>
+          <td  style="text-align: left !important;overflow: hidden;text-overflow: ellipsis; max-width: 120px">
+            <a class="link-secondary c-up" [routerLink]="['/exchanges/',exc?.ex_slug]" > <img class="img-l" src="{{exc?.ex_icon}}" width="22"> <b>{{exc?.ex_name}} </b></a>
+          </td>
+          <td class="text-center">
+        <span class="cmc-exchange-alert">
+        <a href="{{exc?.market_url}}" target="_blank">{{exc?.market_pair}}</a>
+       </span>
+          </td>
+          <td>
+            <span class="price-c">{{exc?.price * fcurrencyValue |currency: fcurrency : 'symbol' : '1.2-2'}} </span>
+          </td>
+          <td class="text-center">{{exc?.volume_24h * fcurrencyValue |currency: fcurrency : 'symbol' : '1.2-2'}}</td>
+          <td class="text-center">{{exc?.category}}</td>
+          <td class="text-center">{{exc?.fee_type}}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  </div>
+  </div>
+

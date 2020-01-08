@@ -1,0 +1,65 @@
+<div class="container" style="margin-top: 120px" appNoRightClick>
+  <link rel="canonical" [href]="sanitizer.bypassSecurityTrustResourceUrl(canonical)" />
+  <div class="row">
+   <!-- <a href="https://aladdinmc.com/" target="_blank" style="margin: auto;display: block;margin-bottom: 10px">
+      <img class="resp-ad"  src="assets/images/ad.gif">
+    </a>-->
+  </div>
+  <div class="col-md-12" >
+    <h1>ICOs</h1>
+    <hr>
+
+    <a class="btn filter-btn"   *ngFor="let opt of filterOptions" (click)="filter(opt)" [ngClass]="{'filter-btn-active': filterString == opt}">{{opt|translate}}</a>
+
+
+  </div>
+<div class="col-md-12 pr-0 pl-0" style="position: unset">
+  <div class="table-responsive" >
+    <mat-progress-bar mode="indeterminate" *ngIf="loader==true"></mat-progress-bar>
+    <table class="table table-striped crypt-table-market-cap " [mfData]="icosData" #mf="mfDataTable" [mfRowsOnPage]="10">
+      <thead>
+      <tr>
+        <th class="text-left">ICO</th>
+        <th scope="col" class="text-left pl-2"> {{'Description'| translate}}</th>
+        <th scope="col"> {{'Timeline'| translate}}</th>
+        <th scope="col"> {{'Country' | translate}} </th>
+        <th scope="col" style="white-space: nowrap"> {{'Status' | translate}}</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let ico of mf.data">
+        <td class="text-left td-ico" (click)="onRedirect(ico?.profile_url)">
+          <img src="{{ico?.logo_url}}" width="30" class="pr-1 crypt-market-cap-logo" alt="coin">
+          <a><b class="capt">{{ico?.slug}}</b> ({{ico?.ticker}})</a>
+        </td>
+        <td class="text-left td-description">
+          <p>{{ico?.short_description}}</p>
+          <a class="tag-platform" *ngIf="ico?.platform != null">Platform : {{ico?.platform}}</a>
+        </td>
+        <td class="td-timeline">
+        <span ><b>{{ico?.ico_start| date}} - </b></span>
+          <span ><b>{{ico?.ico_end| date}}</b></span>
+      </td>
+        <td class="td-country">
+          <span >{{ico?.country}}</span>
+        </td>
+        <td>
+          <span *ngIf="ico?.status=='Pre-Sale'" class="st-tag tag-pre-sale" ><b>{{ico?.status| translate}}</b></span>
+          <span *ngIf="ico?.status=='Upcoming'" class="st-tag tag-upcoming" ><b>{{ico?.status| translate}}</b></span>
+          <span *ngIf="ico?.status=='Ongoing'" class="st-tag tag-ongoing" ><b>{{ico?.status| translate}}</b></span>
+          <span *ngIf="ico?.status=='Closed'" class="st-tag tag-ended" ><b>{{ico?.status| translate}}</b></span>
+          <span *ngIf="ico?.status=='Unknown'" class="st-tag tag-unknown" ><b>{{ico?.status| translate}}</b></span>
+        </td>
+      </tr>
+
+
+
+
+      </tbody>
+      <mfBootstrapPaginator (click)="toTop()"></mfBootstrapPaginator>
+    </table>
+
+
+  </div>
+</div>
+</div>
