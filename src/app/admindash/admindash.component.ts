@@ -43,9 +43,12 @@ export class AdmindashComponent implements OnInit {
   newTechnicalDoc;
   newTwitter;
   newReddit;
+  newTelegram;
+  newFacebook;
+  newLinkedin;
+  newBitcointalk;
   newCode;
-  constructor(@Inject(PLATFORM_ID) private platformId: object,   public activeRoute: ActivatedRoute,
-              public apiServices: ApiservicesService, public router: Router) {
+  constructor(@Inject(PLATFORM_ID) private platformId: object,   public activeRoute: ActivatedRoute, public apiServices: ApiservicesService, public router: Router) {
   }
 
   DoShowCoinLinks() {
@@ -183,9 +186,25 @@ export class AdmindashComponent implements OnInit {
     this.apiServices.updateLinksReddit(this.newReddit, id , this.SelectedCoin)
       .subscribe( res => {}, () => {} , () => { this.newReddit = null; this.refreshURLS(); });
   }
+  updateLinksTelegram(id) {
+    this.apiServices.updateLinksChat(this.newTelegram, id , this.SelectedCoin)
+      .subscribe( res => {}, () => {} , () => { this.newTelegram = null; this.refreshURLS(); });
+  }
   updateLinksCode(id) {
     this.apiServices.updateLinksCode(this.newCode, id , this.SelectedCoin)
       .subscribe( res => {}, () => {} , () => { this.newCode = null; this.refreshURLS(); });
+  }
+  updateLinksFacebook(id) {
+    this.apiServices.updateLinksFacebook(this.newFacebook, id , this.SelectedCoin)
+      .subscribe( res => {}, () => {} , () => { this.newFacebook = null; this.refreshURLS(); });
+  }
+  updateLinksLinkedIn(id) {
+    this.apiServices.updateLinksLinkedIn(this.newLinkedin, id , this.SelectedCoin)
+      .subscribe( res => {}, () => {} , () => { this.newLinkedin = null; this.refreshURLS(); });
+  }
+  updateLinksBitcoinTalk(id) {
+    this.apiServices.updateLinksBitcoinTalk(this.newBitcointalk, id , this.SelectedCoin)
+      .subscribe( res => {}, () => {} , () => { this.newBitcointalk = null; this.refreshURLS(); });
   }
   deleteLink(field, value , id) {
     this.apiServices.deleteLink(field, value, id)

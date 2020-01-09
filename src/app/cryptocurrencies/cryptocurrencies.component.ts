@@ -31,12 +31,12 @@ export class CryptocurrenciesComponent implements OnInit, AfterViewInit {
   canonical;
   currencyPopup = false;
   changedCurrency;
+  moreAbout = false;
   validCurrencies = ['AED' , 'USD', 'AUD', 'BRL', 'CAD', 'CHF', 'CLP', 'CNY', 'CZK', 'DKK', 'EUR', 'GBP', 'HKD', 'HUF', 'IDR', 'ILS',
     'INR', 'JPY', 'KRW', 'MXN', 'MYR', 'NOK', 'NZD', 'PHP', 'PKR', 'PLN', 'RUB', 'SEK', 'SGD', 'THB', 'TRY', 'TWD', 'ZAR'];
 
   constructor( @Inject(PLATFORM_ID) private platformId: object,   private apiServices: ApiservicesService ,
-               private router: Router , private titleService: Title , private meta: Meta , public sanitizer: DomSanitizer ,
-               public activeRoute: ActivatedRoute) {
+               private router: Router , private titleService: Title , private meta: Meta , public sanitizer: DomSanitizer , public activeRoute: ActivatedRoute) {
     if (this.router.url === '/') {
       this.canonical = 'https://tokenncoin.com/';
       this.titleService.setTitle('Crypto Market Cap, Live Price, Volume & Graph');
@@ -152,5 +152,12 @@ export class CryptocurrenciesComponent implements OnInit, AfterViewInit {
 }
 
 
+  showMore() {
+    if (this.moreAbout === false) {
+      this.moreAbout = true;
+    } else {
+      this.moreAbout = false;
+    }
+  }
 }
 

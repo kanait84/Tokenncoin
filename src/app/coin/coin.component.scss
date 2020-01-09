@@ -54,7 +54,7 @@ h5{
 .light-c-bck{
   background-color: rgba(241, 241, 241, 0.67);
   border-radius: 10px;
-  padding: 10px;
+  padding: 7px;
   border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
@@ -162,4 +162,25 @@ h5{
 }
 .light-c-bck .fa-2x{
   font-size: 1.25em;
+}
+
+.stretch-tbl{
+  word-break: keep-all;
+  white-space: nowrap;
+  vertical-align: baseline;
+  padding-top: 7px !important;
+}
+
+.light-c-bck td{
+  padding: 0.1rem;
+}
+
+.light-c-bck table{
+  margin-bottom: 0px;
+  width: auto;
+  max-width: 100%;
+}
+.light-c-bck hr{
+  margin-top: 0.4rem;
+  margin-bottom: 0.4rem;
 }

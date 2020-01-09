@@ -59,13 +59,13 @@
               {{fcurrency}}<i class="pe pe-7s-angle-down-circle"></i></a>
             <div class="dropdown-menu" aria-labelledby="currencyConvert">
               <ng-container *ngFor="let cur of currencies?.rates| keyvalue">
-                <a class="pull-left dropdown-toggle c-up  c-drop-down" *ngIf="validCurrencies.includes(cur.key)"
-                   (click)="onCurrency(cur.key,cur.value)">
-                  <img class="cur-flags" style="margin-right: 2px" src="assets/images/flags/{{cur.key}}.svg"
-                       alt="{{cur.key}}">{{cur.key}}</a>
+                <a class="pull-left dropdown-toggle c-up  c-drop-down" *ngIf="validCurrencies.includes(cur.key)"  (click)="onCurrency(cur.key,cur.value)">
+                  <img class="cur-flags" style="margin-right: 2px" src="assets/images/flags/{{cur.key}}.svg" alt="{{cur.key}}">{{cur.key}}</a>
               </ng-container>
             </div>
         </a>
+
+
       </div>
 
      <!-- <a (click)="filter()" class="crypt-btn crypt-button-inline  pull-right btn-xs">Filter<i class="pe pe-7s-angle-right-circle"></i></a>-->
@@ -121,8 +121,8 @@
       <a routerLink="/watchlist" class="crypt-btn crypt-button-inline crypt-btn-green m-f-50 btn-xs">
         {{'Watchlist'| translate}} <i class="pe pe-7s-timer"></i></a>
      <!-- <a  href="" class="crypt-btn crypt-button-inline pull-right">View All</a>-->
-      <a *ngIf="pageValueC < 24"  routerLink="{{'/page=' + (pageValueC + 1)  + '/'}}" class="crypt-btn crypt-button-inline pull-right">{{'Next 100'| translate}} <i class="pe pe-7s-angle-right-circle"></i></a>
-      <a *ngIf="pageValueC > 1" routerLink="{{'/page='+ (pageValueC - 1)  + '/'}}" class="crypt-btn crypt-button-inline pull-right btn-xs" style="margin-right: 5px"><i class="pe pe-7s-angle-left-circle"></i> {{'Previous 100'|translate}} </a>
+      <a *ngIf="pageValueC < 24"  routerLink="{{'/page/' + (pageValueC + 1)  + '/'}}" class="crypt-btn crypt-button-inline pull-right">{{'Next 100'| translate}} <i class="pe pe-7s-angle-right-circle"></i></a>
+      <a *ngIf="pageValueC > 1" routerLink="{{'/page/'+ (pageValueC - 1)  + '/'}}" class="crypt-btn crypt-button-inline pull-right btn-xs" style="margin-right: 5px"><i class="pe pe-7s-angle-left-circle"></i> {{'Previous 100'|translate}} </a>
     </div>
 
 
@@ -145,6 +145,237 @@
   </div>
 
 </div>
+
+<div class="row">
+  <div class="container">
+  <div class="col-md-10 offset-md-1 more-abt">
+    <div class="side-cont" style="padding: 15px">
+      <div class="show-more-abt">
+    <h2 class="text-center">Tokenncoin Best Features and Highlights</h2><hr>
+    <p>Tokenncoin is a <a href="https://en.wikipedia.org/wiki/Cryptocurrency">cryptocurrency</a> market data platform. It is a convenient platform to use for cryptocurrency market research. Our site provides the latest rankings, exchange volume, crypto news, events, <a href="https://tokenncoin.com/icos">Initial Coin Offering (ICO)</a> updates, and many more. It allows you to monitor real-time changes and keep track of the top-performing cryptocurrencies like Bitcoin, Ethereum, and <a href="https://tokenncoin.com/cryptocurrencies/tether">Tether</a>, as well as thousands of altcoins.
+      <br><br>
+    We have also released a mobile application for Tokenncoin. You can <a href="https://play.google.com/store/apps/details?id=com.tokenncoin.marketcap&hl=en">download the Tokenncoin mobile application</a> on Google Play Store for Android. For iPhone users, the iOS version of the app is under development. In the meantime, iOS users can easily access Tokenncoin using their mobile browsers and going to tokenncoin.com.  <span style="cursor: pointer;text-decoration: underline" *ngIf="moreAbout === false"   (click)="showMore()"  >Read More</span><br><br>
+    </p>
+      </div>
+    <div class="show-more-abt" *ngIf="moreAbout === true">
+    <p>
+    Tokenncoin is a leading authority that provides expert knowledge in coin prices to help you easily navigate and compare different cryptocurrencies. The aim of the platform is to offer curated data and analysis on the cryptocurrency market. As a result, it becomes easier for traders to stay up to date with cryptocurrency prices, make price comparisons, and making informed decisions when trading.<br><br>
+
+    Our main goal is to be the best and most-used application that provides objective insights and institutional-grade cryptocurrency data to millions of users around the globe. Tokenncoin enables you to track all your crypto prices and other digital asset’s value based on the live crypto market. The platform also provides price analysis of different cryptocurrencies with notable gains such as ETH price, <a href="https://tokenncoin.com/cryptocurrencies/iota">lOTA price</a>, and ITC price.<br><br>
+
+      Tokenncoin assists the buying public with real-time information of coins with parabolic gains, coins with lower volatility and coins that are in a bearish mood. The platform offers a wide range of accurate data for various cryptocurrencies including that of Bitcoin cash price and <a href="https://tokenncoin.com/cryptocurrencies/monero">Monero price</a>.</p><br>
+
+    <h3>Tokenncoin Best Features</h3>
+
+    <h4>Coin Compare</h4>
+    <p> <a href="https://tokenncoin.com/coin-compare">Coin Compare</a> is a notable feature used on the Tokenncoin app to acquire instant comparison of different coins in the crypto industry. The feature gives precise information about the coins including rank, 7d change, price market cap, volume for 24hrs, volume for 7d, volume for 30d, total supply, and maximum supply.</p><br>
+
+
+    <h4>Language</h4>
+    <p>Tokenncoin app is a multilingual platform. It can be viewed and read in six different languages, attracting a wide scope of users around the globe. Languages used on the app include English, Japanese, Korean, Chinese, Portuguese, and Russian. You can trade comfortably in a language you understand most.</p><br>
+
+    <h4>Day or Night mode</h4>
+    <p>Tokenncoin app presents cryptocurrency data in a clear and appealing window. To optimize maximum readability, users are given options to view and navigate the website in day or night mode. This feature will aid in a clearer review of data to be easy on the eyes.</p><br><br>
+
+    <h4>Watchlist</h4>
+    <p>Tokenncoin app has a watch list that helps users select a list of coins they choose to track.  You can save the cryptos you are monitoring on the watchlist.</p><br>
+
+    <h3>Crypto Price Analysis</h3>
+
+    <p>Tokenncoin is a platform that ranks and analyzes all blockchain-based coins and tokens in the crypto market. We cover all the necessary information about the thousands of digital currencies that exist — like Bitcoin, Ethereum, Monero, and the newer coins and tokens. Tokenncoin aims to provide all the research demands of investors, traders, and crypto holders pertaining to the cryptocurrency market.<br><br>
+
+    The platform provides you with the most comprehensive data and historical trends of coin prices. We assist financial market participants and institutions with a current analysis of different cryptocurrency prices.<br><br>
+
+      Our site offers price data for the most sought-after cryptocurrencies. This includes but is not limited to Bitcoin price, <a href="https://tokenncoin.com/cryptocurrencies/ethereum">Ethereum price</a>, <a href="https://tokenncoin.com/cryptocurrencies/ripple">Ripple price</a>, and <a href="https://tokenncoin.com/cryptocurrencies/litecoin">Litecoin price</a>. We are also posting cryptocurrency price news and changes that will keep you up to date with information in the crypto market.</p><br><br>
+
+    <h3>Cryptocurrency Exchange Platforms</h3>
+
+     <p>To serve the wide userbase, the Tokenncoin app ranks more than 100 exchanges based on its adjusted volume and price change. This feature assists traders with data on buying, selling and trading of cryptocurrencies to various assets such as fiat currency and other digital currencies using the various exchange platforms.<br><br>
+
+    The exchange platforms support the trade of almost all cryptocurrencies including that of  BTC and USD, bitcoin and USD and ETH to USD. The platform also provides up to date data on recently established decentralized cryptocurrency exchanges. The newly developed exchanges function using prepaid smart contracts instead of digital currencies.<br><br>
+
+    Tokenncoin app aims to provide newcomers and experts with comprehensive information on reliable exchange rates at all times. Check out comprehensive details about the historic volume, active markets, trading pairs, and fee structures of Coinbase, Bittrex, OKEx, Bithumb Global, <a href="https://tokenncoin.com/exchanges/binance">Binance</a>, Stellar lumens, Poloniex and more.<br><br>
+
+       The platform aims to make the crypto exchange process become easier and reliable for all traders. The crypto market is constantly evolving and we aim to provide our users with current crypto exchange data. We constantly provide data on the leading exchanges in terms of traffic and exchange.</p><br>
+
+    <h3>Real-time Cryptocurrency Rankings</h3>
+
+   <p> Tokenncoin is a multifaceted cryptocurrency platform that offers a wide range of crypto market rankings. We bring the best features of established crypto market portals all in one platform — tokenncoin. We offer a complete platform that provides reliable market data with market capitalization data broadcasted live.<br><br>
+
+    Tokkenncoin’s method in ranking and doing altcoin valuations coins encompass the best practices in the industry. We assist crypto-traders with current information of a wide range of altcoins, market cap, circulating supply, and price graph, you can anticipate which crypto is most likely to gain or lose. The main purpose of this feature is to help investors mitigate risk and stop losses. A one-stop source for coin information.<br><br>
+
+    From new cryptos, <a href="https://tokenncoin.com/exchanges">crypto exchanges</a>, cryptocurrencies with the fastest average transactions, scams and opportunities that are arising as the cryptocurrency industry grows tremendously. We give you a perfect ground to make your own investment choice.<br><br>
+
+     To help our users we provide institutional-grade cryptocurrency data for over <a href="https://tokenncoin.com/cryptocurrencies">2000+ cryptocurrencies</a> including that of Bitconnect, Electroneum, Dogecoin, IOTA, NEO, KuCoin, Tether, and BNB. Tokenncoin is the key platform that lists and helps investors, entrepreneurs, regulators and the general public to understand the cryptocurrency market.</p><br>
+
+    <h3>Coin Compare: Easy and Convenient Crypto Comparison</h3>
+
+    <p>Tokenncoin is a cryptocurrency analysis tool that merges live price data, market capitalization, trading volume, and price change percentages for all cryptocurrencies inclusive of Iron Coin, Nano, HitBTC, Zcash, Siacoin, vChain, XLM, Cardano, and TXR coin. Price patterns frequently change, and Tokenncoin aims to assist you with technical and fundamental factors of the cryptocurrency market.<br><br>
+
+    We base the coin’s ranking on its market capitalization and its circulating supply. Tokenncoin also shows the current market price chart and an analysis of how most cryptos are performing. We also show the tracking price and volume for every coin on the website in real-time. With our platform, you are able to get the correct insights and stay up to date with changes in the crypto market<br><br>
+
+      Tokenncoin app also tracks all the significant factors that drive the cryptocurrency market. It is our goal to enlighten and feed crypto holders and investors the knowledge about the reputation and performance of crypto coins and tokens with all the efforts to help them in their trading and investment endeavors. We offer informed and unbiased cryptocurrency analysis that empowers our users to make sound decisions when investing in digital currencies.</p><br>
+
+    <h3>Currency Conversion Calculator</h3>
+
+     <p> Instantly know the conversion value of a cryptocurrency to fiat or fiat to cryptocurrency using Tokenncoin’s Coin Conversion Calculator. The world is gradually accepting cryptocurrency as a global payment system. Companies now offer payments in cryptocurrencies such as Bitcoin.<br><br>
+
+      Tokenncoin’s conversion calculator provides instantaneous calculations of registered cryptocurrencies to fiat currency in real-time. The currency conversion can be done in a short space of time using the current exchange rate of the day. Investors who trade in International stock exchanges can use the platform to convert their different currencies.<br><br>
+
+      The calculator has all registered cryptocurrencies and selected stable fiat currencies with the rates based on the reliable and real-time market. Tokenncoin also uses the BitCoin calculator.<br><br>
+
+       The calculator enables crypto traders to convert Bitcoin to any preferred currency of choice using conversion rates on Tokenncoin’s live <a href="https://tokenncoin.com/cryptocurrencies/bitcoin">Bitcoin Price</a> Index. The Bitcoin calculator allows you to review current rates, decide on your choice of investment and make your purchase.</p><br>
+
+    <h3>Crypto Market Cap</h3>
+
+    <p> Market capitalization in crypto is expressed as the circulation supply of tokens which is then multiplied using the current price. Tokenncoin market cap helps crypto traders with information about the biggest cryptocurrency, those that follow and their current market value.<br><br>
+
+    The market cap will help guide investors with the circulating supply, total supply, and max supply of 2000+ cryptocurrencies. This feature will assist investors to determine the value of a cryptocurrency, monitoring the growth of the crypto asset and calculating the risks involved when investing in the crypto.<br><br>
+
+      Instantly know the comparison rates of crypto to stock markets and crypto to other markets. Tokenncoin market app offers crypto compare data against the entire worlds’ markets on one single platform.</p><br><br>
+
+    <h3>Breaking Crypto News and Events</h3>
+
+    <p>Stay updated with the current affairs of the crypto market on our platform. Tokenncoin app gathers the breaking <a href='https://tokenncoin.com/news'>cryptocurrency news</a> from various online media publications like <a href="https://cointelegraph.com/">Cointelegraph</a>, <a href="https://www.coindesk.com/">Coindesk</a>, Newsbtc, and other sources.<br><br>
+
+    Our exclusive news section lists down conferences, celebrations, and activities you can participate in. We offer up to date news on global blockchain, emerging fintech trends and cryptocurrency news, covering everything you need to know in detail.<br><br>
+
+      An informative platform that educates, and connects the global investment community through crypto news. Our news platform is based on our passion to deliver a wide range of crypto news that is unbiased news and has insightful opinions. Tokenncoin app news assists investors with news on how cryptocurrencies and digital assets are emerging in the global financial system.</p><br>
+
+    <h3>Key Benefits of Using Tokenncoin</h3>
+    <p>
+    • Know the latest and on-going Initial Coin Offerings (ICOs) <br>
+    • Monitor and track cryptocurrency rankings anytime<br>
+    • Check liquidity of crypto exchanges<br>
+    • Acquire accurate, reliable, and in-depth data of over 2000+ crypto assets<br>
+    • Maximize flexible crypto tools<br>
+    • Manage your crypto portfolio based on the real-time value<br>
+    • Stay updated on the latest cryptocurrency news and updates<br>
+    •  Learn the basics of crypto and blockchain with Tokenncoin glossary<br><br>
+    </p>
+    </div>
+      <p style="cursor: pointer;width:100%;text-decoration: underline;text-align: center" *ngIf="moreAbout === true"   (click)="showMore()"  >Read less</p>
+</div>
+    <hr>
+  </div>
+  </div>
+</div>
+
+<div class="row" style="display: none">
+  <div class="container">
+    <div class="col-md-10 offset-md-1 more-abt">
+      <div style="padding: 15px">
+        <div class="show-more-abt">
+          <h2 class="text-center">Tokenncoin Best Features and Highlights</h2><hr>
+          <p>Tokenncoin is a <a href="https://en.wikipedia.org/wiki/Cryptocurrency">cryptocurrency</a> market data platform. It is a convenient platform to use for cryptocurrency market research. Our site provides the latest rankings, exchange volume, crypto news, events, <a href="https://tokenncoin.com/icos">Initial Coin Offering (ICO)</a> updates, and many more. It allows you to monitor real-time changes and keep track of the top-performing cryptocurrencies like Bitcoin, Ethereum, and <a href="https://tokenncoin.com/cryptocurrencies/tether">Tether</a>, as well as thousands of altcoins.
+            <br><br>
+            We have also released a mobile application for Tokenncoin. You can <a href="https://play.google.com/store/apps/details?id=com.tokenncoin.marketcap&hl=en">download the Tokenncoin mobile application</a> on Google Play Store for Android. For iPhone users, the iOS version of the app is under development. In the meantime, iOS users can easily access Tokenncoin using their mobile browsers and going to tokenncoin.com.<br><br>
+          </p>
+        </div>
+        <div class="show-more-abt">
+          <p>
+            Tokenncoin is a leading authority that provides expert knowledge in coin prices to help you easily navigate and compare different cryptocurrencies. The aim of the platform is to offer curated data and analysis on the cryptocurrency market. As a result, it becomes easier for traders to stay up to date with cryptocurrency prices, make price comparisons, and making informed decisions when trading.<br><br>
+
+            Our main goal is to be the best and most-used application that provides objective insights and institutional-grade cryptocurrency data to millions of users around the globe. Tokenncoin enables you to track all your crypto prices and other digital asset’s value based on the live crypto market. The platform also provides price analysis of different cryptocurrencies with notable gains such as ETH price, <a href="https://tokenncoin.com/cryptocurrencies/iota">lOTA price</a>, and ITC price.<br><br>
+
+            Tokenncoin assists the buying public with real-time information of coins with parabolic gains, coins with lower volatility and coins that are in a bearish mood. The platform offers a wide range of accurate data for various cryptocurrencies including that of Bitcoin cash price and <a href="https://tokenncoin.com/cryptocurrencies/monero">Monero price</a>.</p><br>
+
+          <h3>Tokenncoin Best Features</h3>
+
+          <h4>Coin Compare</h4>
+          <p> <a href="https://tokenncoin.com/coin-compare">Coin Compare</a> is a notable feature used on the Tokenncoin app to acquire instant comparison of different coins in the crypto industry. The feature gives precise information about the coins including rank, 7d change, price market cap, volume for 24hrs, volume for 7d, volume for 30d, total supply, and maximum supply.</p><br>
+
+
+          <h4>Language</h4>
+          <p>Tokenncoin app is a multilingual platform. It can be viewed and read in six different languages, attracting a wide scope of users around the globe. Languages used on the app include English, Japanese, Korean, Chinese, Portuguese, and Russian. You can trade comfortably in a language you understand most.</p><br>
+
+          <h4>Day or Night mode</h4>
+          <p>Tokenncoin app presents cryptocurrency data in a clear and appealing window. To optimize maximum readability, users are given options to view and navigate the website in day or night mode. This feature will aid in a clearer review of data to be easy on the eyes.</p><br><br>
+
+          <h4>Watchlist</h4>
+          <p>Tokenncoin app has a watch list that helps users select a list of coins they choose to track.  You can save the cryptos you are monitoring on the watchlist.</p><br>
+
+          <h3>Crypto Price Analysis</h3>
+
+          <p>Tokenncoin is a platform that ranks and analyzes all blockchain-based coins and tokens in the crypto market. We cover all the necessary information about the thousands of digital currencies that exist — like Bitcoin, Ethereum, Monero, and the newer coins and tokens. Tokenncoin aims to provide all the research demands of investors, traders, and crypto holders pertaining to the cryptocurrency market.<br><br>
+
+            The platform provides you with the most comprehensive data and historical trends of coin prices. We assist financial market participants and institutions with a current analysis of different cryptocurrency prices.<br><br>
+
+            Our site offers price data for the most sought-after cryptocurrencies. This includes but is not limited to Bitcoin price, <a href="https://tokenncoin.com/cryptocurrencies/ethereum">Ethereum price</a>, <a href="https://tokenncoin.com/cryptocurrencies/ripple">Ripple price</a>, and <a href="https://tokenncoin.com/cryptocurrencies/litecoin">Litecoin price</a>. We are also posting cryptocurrency price news and changes that will keep you up to date with information in the crypto market.</p><br><br>
+
+          <h3>Cryptocurrency Exchange Platforms</h3>
+
+          <p>To serve the wide userbase, the Tokenncoin app ranks more than 100 exchanges based on its adjusted volume and price change. This feature assists traders with data on buying, selling and trading of cryptocurrencies to various assets such as fiat currency and other digital currencies using the various exchange platforms.<br><br>
+
+            The exchange platforms support the trade of almost all cryptocurrencies including that of  BTC and USD, bitcoin and USD and ETH to USD. The platform also provides up to date data on recently established decentralized cryptocurrency exchanges. The newly developed exchanges function using prepaid smart contracts instead of digital currencies.<br><br>
+
+            Tokenncoin app aims to provide newcomers and experts with comprehensive information on reliable exchange rates at all times. Check out comprehensive details about the historic volume, active markets, trading pairs, and fee structures of Coinbase, Bittrex, OKEx, Bithumb Global, <a href="https://tokenncoin.com/exchanges/binance">Binance</a>, Stellar lumens, Poloniex and more.<br><br>
+
+            The platform aims to make the crypto exchange process become easier and reliable for all traders. The crypto market is constantly evolving and we aim to provide our users with current crypto exchange data. We constantly provide data on the leading exchanges in terms of traffic and exchange.</p><br>
+
+          <h3>Real-time Cryptocurrency Rankings</h3>
+
+          <p> Tokenncoin is a multifaceted cryptocurrency platform that offers a wide range of crypto market rankings. We bring the best features of established crypto market portals all in one platform — tokenncoin. We offer a complete platform that provides reliable market data with market capitalization data broadcasted live.<br><br>
+
+            Tokkenncoin’s method in ranking and doing altcoin valuations coins encompass the best practices in the industry. We assist crypto-traders with current information of a wide range of altcoins, market cap, circulating supply, and price graph, you can anticipate which crypto is most likely to gain or lose. The main purpose of this feature is to help investors mitigate risk and stop losses. A one-stop source for coin information.<br><br>
+
+            From new cryptos, <a href="https://tokenncoin.com/exchanges">crypto exchanges</a>, cryptocurrencies with the fastest average transactions, scams and opportunities that are arising as the cryptocurrency industry grows tremendously. We give you a perfect ground to make your own investment choice.<br><br>
+
+            To help our users we provide institutional-grade cryptocurrency data for over <a href="https://tokenncoin.com/cryptocurrencies">2000+ cryptocurrencies</a> including that of Bitconnect, Electroneum, Dogecoin, IOTA, NEO, KuCoin, Tether, and BNB. Tokenncoin is the key platform that lists and helps investors, entrepreneurs, regulators and the general public to understand the cryptocurrency market.</p><br>
+
+          <h3>Coin Compare: Easy and Convenient Crypto Comparison</h3>
+
+          <p>Tokenncoin is a cryptocurrency analysis tool that merges live price data, market capitalization, trading volume, and price change percentages for all cryptocurrencies inclusive of Iron Coin, Nano, HitBTC, Zcash, Siacoin, vChain, XLM, Cardano, and TXR coin. Price patterns frequently change, and Tokenncoin aims to assist you with technical and fundamental factors of the cryptocurrency market.<br><br>
+
+            We base the coin’s ranking on its market capitalization and its circulating supply. Tokenncoin also shows the current market price chart and an analysis of how most cryptos are performing. We also show the tracking price and volume for every coin on the website in real-time. With our platform, you are able to get the correct insights and stay up to date with changes in the crypto market<br><br>
+
+            Tokenncoin app also tracks all the significant factors that drive the cryptocurrency market. It is our goal to enlighten and feed crypto holders and investors the knowledge about the reputation and performance of crypto coins and tokens with all the efforts to help them in their trading and investment endeavors. We offer informed and unbiased cryptocurrency analysis that empowers our users to make sound decisions when investing in digital currencies.</p><br>
+
+          <h3>Currency Conversion Calculator</h3>
+
+          <p> Instantly know the conversion value of a cryptocurrency to fiat or fiat to cryptocurrency using Tokenncoin’s Coin Conversion Calculator. The world is gradually accepting cryptocurrency as a global payment system. Companies now offer payments in cryptocurrencies such as Bitcoin.<br><br>
+
+            Tokenncoin’s conversion calculator provides instantaneous calculations of registered cryptocurrencies to fiat currency in real-time. The currency conversion can be done in a short space of time using the current exchange rate of the day. Investors who trade in International stock exchanges can use the platform to convert their different currencies.<br><br>
+
+            The calculator has all registered cryptocurrencies and selected stable fiat currencies with the rates based on the reliable and real-time market. Tokenncoin also uses the BitCoin calculator.<br><br>
+
+            The calculator enables crypto traders to convert Bitcoin to any preferred currency of choice using conversion rates on Tokenncoin’s live <a href="https://tokenncoin.com/cryptocurrencies/bitcoin">Bitcoin Price</a> Index. The Bitcoin calculator allows you to review current rates, decide on your choice of investment and make your purchase.</p><br>
+
+          <h3>Crypto Market Cap</h3>
+
+          <p> Market capitalization in crypto is expressed as the circulation supply of tokens which is then multiplied using the current price. Tokenncoin market cap helps crypto traders with information about the biggest cryptocurrency, those that follow and their current market value.<br><br>
+
+            The market cap will help guide investors with the circulating supply, total supply, and max supply of 2000+ cryptocurrencies. This feature will assist investors to determine the value of a cryptocurrency, monitoring the growth of the crypto asset and calculating the risks involved when investing in the crypto.<br><br>
+
+            Instantly know the comparison rates of crypto to stock markets and crypto to other markets. Tokenncoin market app offers crypto compare data against the entire worlds’ markets on one single platform.</p><br><br>
+
+          <h3>Breaking Crypto News and Events</h3>
+
+          <p>Stay updated with the current affairs of the crypto market on our platform. Tokenncoin app gathers the breaking <a href='https://tokenncoin.com/news'>cryptocurrency news</a> from various online media publications like <a href="https://cointelegraph.com/">Cointelegraph</a>, <a href="https://www.coindesk.com/">Coindesk</a>, Newsbtc, and other sources.<br><br>
+
+            Our exclusive news section lists down conferences, celebrations, and activities you can participate in. We offer up to date news on global blockchain, emerging fintech trends and cryptocurrency news, covering everything you need to know in detail.<br><br>
+
+            An informative platform that educates, and connects the global investment community through crypto news. Our news platform is based on our passion to deliver a wide range of crypto news that is unbiased news and has insightful opinions. Tokenncoin app news assists investors with news on how cryptocurrencies and digital assets are emerging in the global financial system.</p><br>
+
+          <h3>Key Benefits of Using Tokenncoin</h3>
+          <p>
+            • Know the latest and on-going Initial Coin Offerings (ICOs) <br>
+            • Monitor and track cryptocurrency rankings anytime<br>
+            • Check liquidity of crypto exchanges<br>
+            • Acquire accurate, reliable, and in-depth data of over 2000+ crypto assets<br>
+            • Maximize flexible crypto tools<br>
+            • Manage your crypto portfolio based on the real-time value<br>
+            • Stay updated on the latest cryptocurrency news and updates<br>
+            •  Learn the basics of crypto and blockchain with Tokenncoin glossary<br><br>
+          </p>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+
+
 
 
 

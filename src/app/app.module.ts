@@ -52,6 +52,7 @@ import { OverviewCandleStickComponent } from './overview-candle-stick/overview-c
 import { GlossaryComponent } from './aaLinks/glossary/glossary.component';
 import { GlossaryAdvancedOptionComponent } from './aaLinks/glossary-advanced-option/glossary-advanced-option.component';
 import { HashLocationStrategy } from '@angular/common';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 
 
 
@@ -88,7 +89,8 @@ import { HashLocationStrategy } from '@angular/common';
     AboutUsComponent,
     OverviewCandleStickComponent,
     GlossaryComponent,
-    GlossaryAdvancedOptionComponent
+    GlossaryAdvancedOptionComponent,
+    PageNotFoundComponent
   ],
   imports: [
     BrowserModule.withServerTransition({ appId: 'serverApp' }),

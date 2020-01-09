@@ -19,6 +19,7 @@ import {DisclaimerComponent} from './aaLinks/disclaimer/disclaimer.component';
 import {AboutUsComponent} from './aaLinks/about-us/about-us.component';
 import {GlossaryComponent} from './aaLinks/glossary/glossary.component';
 import {GlossaryAdvancedOptionComponent} from './aaLinks/glossary-advanced-option/glossary-advanced-option.component';
+import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 
 const routes: Routes = [
   {path: '', component: LandingComponent},
@@ -42,7 +43,7 @@ const routes: Routes = [
   {path: 'about-us' , component: AboutUsComponent},
   {path: 'advanced-crypto-glossary' , component: GlossaryAdvancedOptionComponent },
   {path: 'beginner-crypto-glossary' , component: GlossaryComponent },
-  {path: '**', redirectTo: ''}
+  {path: '**', component: PageNotFoundComponent}
 ];
 
 @NgModule({

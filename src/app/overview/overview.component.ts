@@ -47,12 +47,8 @@ export class OverviewComponent implements OnInit, OnDestroy, AfterViewInit {
     this.activeRoute.params.subscribe(routeParams => {
       this.synchData(routeParams.id);
     });
-// Create chart
-
-
   }
   synchData(id) {
-    console.log(id);
     if (isPlatformBrowser(this.platformId)) {
       this.apiServices.getCoin(id).subscribe((res) => {
         // @ts-ignore

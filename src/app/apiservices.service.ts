@@ -227,6 +227,47 @@ export class ApiservicesService {
         {source_code: code , slug}, {headers});
     }
   }
+  updateLinksChat(chat, id , slug) {
+    if (isPlatformBrowser(this.platformId)) {
+      const headers = new HttpHeaders({
+        'tac-access-token': localStorage.getItem('A_TK'),
+        id: localStorage.getItem('A_ID')
+      });
+      return this.http.post('https://api.tokenncoin.com' + '/admin/setInfo/' + id ,
+        {chat , slug}, {headers});
+    }
+  }
+
+  updateLinksFacebook(facebook, id , slug) {
+    if (isPlatformBrowser(this.platformId)) {
+      const headers = new HttpHeaders({
+        'tac-access-token': localStorage.getItem('A_TK'),
+        id: localStorage.getItem('A_ID')
+      });
+      return this.http.post('https://api.tokenncoin.com' + '/admin/setInfo/' + id ,
+        {facebook , slug}, {headers});
+    }
+  }
+  updateLinksLinkedIn(linkedin, id , slug) {
+    if (isPlatformBrowser(this.platformId)) {
+      const headers = new HttpHeaders({
+        'tac-access-token': localStorage.getItem('A_TK'),
+        id: localStorage.getItem('A_ID')
+      });
+      return this.http.post('https://api.tokenncoin.com' + '/admin/setInfo/' + id ,
+        {linkedin , slug}, {headers});
+    }
+  }
+  updateLinksBitcoinTalk(bitcointalk, id , slug) {
+    if (isPlatformBrowser(this.platformId)) {
+      const headers = new HttpHeaders({
+        'tac-access-token': localStorage.getItem('A_TK'),
+        id: localStorage.getItem('A_ID')
+      });
+      return this.http.post('https://api.tokenncoin.com' + '/admin/setInfo/' + id ,
+        {bitcointalk , slug}, {headers});
+    }
+  }
 
   deleteLink(field, value, id) {
     if (isPlatformBrowser(this.platformId)) {

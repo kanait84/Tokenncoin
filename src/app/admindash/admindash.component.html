@@ -145,6 +145,47 @@
                   </div>
                 </div>
                 <div class="row">
+                  <p class="w-100"> <i class="fa fa-telegram"></i> Telegram</p>
+                  <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.chat">{{tw}}</span>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.chat">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('chat', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newTelegram" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksTelegram(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-facebook"></i> Facebook</p>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.facebook">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('facebook', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newFacebook" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksFacebook(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-linkedin"></i> LinkedIn</p>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.linkedin">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('linkedin', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newLinkedin" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksLinkedIn(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
+                  <p class="w-100"> <i class="fa fa-btc"></i> BitcoinTalk</p>
+                  <span class="link-tags" *ngFor="let tw of CoinLinks?.bitcointalk">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('bitcointalk', tw , EditableData._id)"></i></span>
+                  <div class="col-md-12 pr-0 pl-0">
+                    <input [(ngModel)]="newBitcointalk" class="link-input w-25" style="height: 30px">
+                    <button class="btn link-input btn-sm" style="height: 30px;width: fit-content" (click)="updateLinksBitcoinTalk(EditableData._id)">
+                      <i class="fa fa-plus-circle" aria-hidden="true"></i> Add</button>
+                    <hr>
+                  </div>
+                </div>
+                <div class="row">
                   <p class="w-100"> <i class="fa fa-file-code-o"></i> Source Code</p>
                   <span class="link-tags un-edit" *ngFor="let tw of EditableData?.url[0]?.urls?.source_code">{{tw}}</span>
                   <span class="link-tags" *ngFor="let tw of CoinLinks?.source_code">{{tw}} <i class="fa fa-trash-o" (click)="deleteLink('source_code', tw, EditableData._id)"></i></span>

@@ -38,17 +38,14 @@
             </div>
             <hr>
           </div>
-        <div class="col-md-7">
+        <div class="col-md-8">
           <p class="top-values"><a class="gro-static" style="font-size: 20px"> {{'Rank'| translate}} <i class="pe pe-7s-graph3"></i> {{coinData?.rank|number}}</a>
             <a class="gro-static" *ngIf="coinData?.url[0]?.tags && coinData?.slug !=='abbc-coin'">{{coinData?.url[0]?.tags}}</a> <a class="d-md-inline d-xs-none"><i class="pe pe-7s-clock"></i> {{coinData?.last_updated | date:'HH:mm:ss | yyyy-MMM-dd'}}</a></p>
-
-          <div class="row">
-          </div>
           <div class="row">
             <!--<img class="img-blured" src="{{coinData?.Chart}}">-->
 
             <div class="col-md-3 pl-0 pr-0 col-6 ">
-              <div class="side-line mt-4">
+              <div class="side-line mt-2">
                 <div class="coin-meta-data text-left">
                   <h5>{{'Market Cap'| translate}}</h5>
                   <h6 >{{currencyString}} <br> {{coinData?.market_cap_usd * convertValue |number}}</h6>
@@ -56,7 +53,7 @@
               </div>
             </div>
             <div class="col-md-3 pl-0 pr-0 col-6 ">
-              <div class="side-line mt-4">
+              <div class="side-line mt-2">
                 <div class="coin-meta-data text-left">
                   <h5>{{'24h Volume'| translate}}</h5>
                   <h6 > {{currencyString}} <br> {{coinData?.volume_24h * convertValue | number}}</h6>
@@ -64,7 +61,7 @@
               </div>
             </div>
             <div class="col-md-3 pl-0 pr-0 col-6 ">
-              <div class="side-line mt-4">
+              <div class="side-line mt-2">
             <div class="coin-meta-data text-left">
               <h5>{{'Circulating Supply' | translate}}</h5>
               <h6 >{{coinData?.symbol}} <br> {{coinData?.circulating_supply | number}}</h6>
@@ -72,7 +69,7 @@
               </div>
             </div>
             <div class="col-md-3 pl-0  col-6 ">
-              <div class="side-line mt-4">
+              <div class="side-line mt-2">
                 <div class="coin-meta-data text-left">
                   <h5>{{'Max Supply'| translate}}</h5>
                   <h6 >{{coinData?.symbol}} <br> <span *ngIf="coinData?.max_supply == null"> <i class="pe pe-7s-loop"></i></span> {{coinData?.max_supply | number}}</h6>
@@ -81,20 +78,43 @@
             </div>
           </div>
         </div>
-        <div class="col-md-5 col-12 pl-0 pr-0">
+        <div class="col-md-4 col-12 pl-0 pr-0">
           <div class="light-c-bck">
-          <p><b><i class="pe pe-7s-search fa-2x"></i>  {{'Explorer' |translate}} </b> :
-            <a *ngFor="let i of coinData?.url[0]?.urls?.explorer;" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
-            <a *ngFor="let i of CoinAdditionalLinks?.explorer" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
-          </p>
-          <p *ngIf="coinData?.url[0]?.urls?.source_code[0] || CoinAdditionalLinks?.source_code[0]"><b><i class="fa fa-code fa-2x"></i> {{'Source Code' | translate}} </b> :
-            <a  *ngFor="let i of coinData?.url[0]?.urls?.source_code;let in = index"  href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('www.','').replace('.com','').replace('.net','').replace('.org','').split('/')[0]}} <br></a>
-            <a *ngFor="let i of CoinAdditionalLinks?.source_code" href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
-          </p>
-          <p *ngIf="coinData?.url[0]?.urls?.technical_doc[0] || CoinAdditionalLinks?.technical_doc[0]"><b><i class="pe pe-7s-news-paper fa-2x"></i> {{'White Paper'| translate}}  </b> :
-            <a  *ngFor="let i of coinData?.url[0]?.urls?.technical_doc;let in = index"  href="{{i}}" target="_blank" class="url-link">{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}  <br></a>
-            <a *ngFor="let i of CoinAdditionalLinks?.technical_doc" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
-          </p>
+            <div class="row">
+              <div class="col-md-12">
+                <table class="table">
+                  <tbody>
+                  <tr>
+                    <td class="stretch-tbl"> <div><b><i class="fa fa-search"></i>  {{'Explorer' |translate}} :</b> </div></td>
+                    <td>
+                      <p>
+                      <a *ngFor="let i of coinData?.url[0]?.urls?.explorer;" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+                      <a *ngFor="let i of CoinAdditionalLinks?.explorer" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+                    </p>
+                    </td>
+                  </tr>
+                  <tr *ngIf="coinData?.url[0]?.urls?.source_code[0] || CoinAdditionalLinks?.source_code[0]">
+                    <td class="stretch-tbl"> <div><b><i class="fa fa-code"></i>  {{'Source Code' | translate}} :</b> </div></td>
+                    <td>
+                      <p>
+                        <a  *ngFor="let i of coinData?.url[0]?.urls?.source_code;let in = index"  href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('www.','').replace('.com','').replace('.net','').replace('.org','').split('/')[0]}} <br></a>
+                        <a *ngFor="let i of CoinAdditionalLinks?.source_code" href="{{i}}" target="_blank" class="url-link" style="text-transform: capitalize"><i class="fa fa-github"></i> {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr  *ngIf="coinData?.url[0]?.urls?.technical_doc[0] || CoinAdditionalLinks?.technical_doc[0]">
+                    <td class="stretch-tbl"> <div><b><i class="fa fa-file-text"></i>  {{'White Paper'| translate}} :</b> </div></td>
+                    <td>
+                      <p>
+                        <a  *ngFor="let i of coinData?.url[0]?.urls?.technical_doc;let in = index"  href="{{i}}" target="_blank" class="url-link">{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}  <br></a>
+                        <a *ngFor="let i of CoinAdditionalLinks?.technical_doc" href="{{i}}" target="_blank" class="url-link" >{{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}} <br></a>
+                      </p>
+                    </td>
+                  </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
             <hr>
             <p *ngIf="coinData?.url[0]?.urls?.website[0] || CoinAdditionalLinks?.website[0]"><b>
               <i class="fa fa-globe fa-2x"></i></b> :
@@ -110,19 +130,39 @@
             <p><b><i class="fa fa-bullhorn fa-2x"></i></b> :
               <ng-container *ngIf="coinData?.url[0]?.urls?.twitter[0]">
                 <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.twitter"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;">
-                  </i> {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+                  </i> Twitter</a>
               </ng-container>
               <ng-container *ngIf="CoinAdditionalLinks?.twitter[0]">
                 <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.twitter"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;"> </i>
-                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+                  Twitter</a>
               </ng-container>
               <ng-container *ngIf="coinData?.url[0]?.urls?.reddit[0]">
                 <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.reddit"  href="{{i}}" target="_blank"><i class="fa fa-reddit" style="color: #FF4301 !important;"> </i>
-                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+                  Reddit</a>
               </ng-container>
               <ng-container *ngIf="CoinAdditionalLinks?.reddit[0]">
-                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.reddit"  href="{{i}}" target="_blank"><i class="fa fa-twitter" style="color: #00acee !important;"> </i>
-                  {{i.replace('http://','').replace('https://','').replace('.com','').replace('.net','').replace('.org','').replace('www.','').split('/')[0]}}</a>
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.reddit"  href="{{i}}" target="_blank"><i class="fa fa-reddit" style="color: #00acee !important;"> </i>
+                  Reddit </a>
+              </ng-container>
+              <ng-container *ngIf="coinData?.url[0]?.urls?.chat[0]">
+                <a class="url-link" *ngFor="let i of coinData?.url[0]?.urls?.chat"  href="{{i}}" target="_blank"><i class="fa fa-telegram" style="color: #0088cc !important;"> </i>
+                  Telegram</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.chat[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.chat"  href="{{i}}" target="_blank"><i class="fa fa-telegram" style="color: #0088cc !important;"> </i>
+                  Telegram</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.facebook[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.facebook"  href="{{i}}" target="_blank"><i class="fa fa-facebook" style="color: #3b5998 !important;"> </i>
+                  Facebook</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.linkedin[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.linkedin"  href="{{i}}" target="_blank"><i class="fa fa-linkedin-square" style="color: #0e76a8 !important;"> </i>
+                  LinkedIn</a>
+              </ng-container>
+              <ng-container *ngIf="CoinAdditionalLinks?.bitcointalk[0]">
+                <a class="url-link" *ngFor="let i of CoinAdditionalLinks?.bitcointalk"  href="{{i}}" target="_blank"><i class="fa fa-btc" style="color: #ff9900 !important;"> </i>
+                  Bitcoin Talk</a>
               </ng-container>
             </p>
           </div>

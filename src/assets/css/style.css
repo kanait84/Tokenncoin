@@ -1135,10 +1135,10 @@ path[fill = "rgb(255, 255, 255)"] {
 }
 .url-link{
   color: #555555 !important;
-  padding: 5px;
+  padding: 4px;
   background-color: rgba(0, 0, 0, 0.04);
   border-radius: 5px;
-  margin-left: 6px
+  margin-left: 6px;
 
 }
 
@@ -1645,7 +1645,7 @@ drag-scroll{
   margin-top: 25px;
 }
 .table th, .table td{
-  padding: 0.6rem;
+  padding: 0.5rem;
 }
 
 .cur-flags{

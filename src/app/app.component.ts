@@ -19,8 +19,7 @@ export class AppComponent implements OnInit {
   geoCurrency = '';
   currencyValue: any;
   windowScrolled;
-  constructor( @Inject(PLATFORM_ID) private platformId: object,   public router: Router,
-               private translate: TranslateService , private apiService: ApiservicesService) {
+  constructor( @Inject(PLATFORM_ID) private platformId: object,   public router: Router, private translate: TranslateService , private apiService: ApiservicesService) {
     translate.setDefaultLang('en');
   }
   @HostListener('window:scroll', [])
@@ -40,6 +39,9 @@ export class AppComponent implements OnInit {
         this.currencyFormat = 'USD';
         localStorage.setItem('localCurrencyFormat', this.currencyFormat);
         localStorage.setItem('localCurrencyValue', '1');
+      }
+      if (localStorage.getItem('mode') === null) {
+        localStorage.setItem('mode', 'dark');
       }
       localStorage.setItem('page-v' , '1' );
     }

@@ -41,7 +41,11 @@
 .side-cont h3{
   margin-top: 20px;
 }
-
+.show-more-abt-btn{
+  margin: auto;
+  display: block;
+  width: 25%
+}
 
 @media only screen and (max-width: 600px){
   .side-cont p{
@@ -56,6 +60,9 @@
     width: 27%;
     text-align: center;
     padding: 8px;
+  }
+  .show-more-abt-btn{
+    width: 50%;
   }
 
 
@@ -88,4 +95,8 @@
 
 a.crypt-btn.crypt-button-inline.crypt-btn-yellow.pull-right.dropdown-toggle.c-up.dropdown-mb {
   width: 60px;
+}
+
+.more-abt p{
+  font-size: medium;
 }
